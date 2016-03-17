@@ -1,27 +1,28 @@
 package com.example.zeko.gymtracker;
 
-import android.app.Service;
+import android.app.IntentService;
 import android.content.Intent;
 import android.os.IBinder;
 
-import com.google.android.gms.location.LocationRequest;
+public class LocationGetter extends IntentService {
 
-public class LocationGetter extends Service {
-    public LocationGetter() {
-
-
+    /**
+     * Creates an IntentService.  Invoked by your subclass's constructor.
+     *
+     * @param name Used to name the worker thread, important only for debugging.
+     */
+    public LocationGetter(String name) {
+        super(name);
     }
-
-
-    protected void createLocationRequest() {
-
-    }
-
-
 
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+    @Override
+    protected void onHandleIntent(Intent intent) {
+
     }
 }

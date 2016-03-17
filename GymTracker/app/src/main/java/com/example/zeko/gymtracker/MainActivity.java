@@ -1,6 +1,5 @@
 package com.example.zeko.gymtracker;
 
-
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -21,21 +21,19 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     TextView lblLat;
     TextView lblLon;
     TextView lblTime;
-    LocationRequest mLocationRequest ;
+    LocationRequest mLocationRequest;
     GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
         lblLat = (TextView) findViewById(R.id.lblLat);
         lblLon = (TextView) findViewById(R.id.lblLon);
         lblTime = (TextView) findViewById(R.id.lblTime);
         btnUpdate = (Button) findViewById(R.id.btnUpdate);
-
 
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -50,48 +48,35 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             @Override
             public void onClick(View v) {
 
-
             }
         });
-
     }
-
 
     @Override
     public void onConnected(Bundle connectionHint) {
 
-
-        try{
-
+        try {
             mLocationRequest = LocationRequest.create();
             mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
             mLocationRequest.setInterval(500);
             mLocationRequest.setFastestInterval(100);
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
-        }catch (SecurityException f)
-        {f.printStackTrace();}
-        
 
+        } catch (SecurityException f) {
+            f.printStackTrace();
+        }
     }
-
-
 
     protected void startLocationUpdates() {
 
-        try{LocationServices.FusedLocationApi.requestLocationUpdates(
-                mGoogleApiClient, mLocationRequest,this
-        );
-
+        try {
+            LocationServices.FusedLocationApi.requestLocationUpdates(
+                    mGoogleApiClient, mLocationRequest, this
+            );
+        } catch (SecurityException f) {
+            f.printStackTrace();
         }
-        catch (SecurityException f)
-        {f.printStackTrace();}
-
     }
-
-
-
-
-
 
 
     @Override
@@ -109,11 +94,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
         Location mLastLocation = location;
 
-        lblLat.setText(Double.toString( mLastLocation.getLatitude()));
-        lblLon.setText(Double.toString( mLastLocation.getLongitude()));
-
-
+        lblLat.setText(Double.toString(mLastLocation.getLatitude()));
+        lblLon.setText(Double.toString(mLastLocation.getLongitude()));
     }
-
-
 }
