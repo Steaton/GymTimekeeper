@@ -70,24 +70,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
         }catch (SecurityException f)
         {f.printStackTrace();}
+        
 
-
-
-        try {
-            Location mLastLocation;
-            mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
-                    mGoogleApiClient);
-            if (mLastLocation != null) {
-                lblLat.setText(String.valueOf(mLastLocation.getLatitude()));
-                lblLon.setText(String.valueOf(mLastLocation.getLongitude()));
-            }
-
-
-
-        }catch (SecurityException f){
-
-            f.printStackTrace();
-        }
     }
 
 
