@@ -20,9 +20,9 @@
         </activity>
 
         <service
-            android:name=".LocationGetter"
+            android:name=".LocationIntentService"
             android:enabled="true"
-            android:exported="true" >
+            android:exported="false" >
         </service>
     </application>
 

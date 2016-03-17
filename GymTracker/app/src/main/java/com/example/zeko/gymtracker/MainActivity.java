@@ -1,5 +1,6 @@
 package com.example.zeko.gymtracker;
 
+import android.content.Intent;
 import android.location.Location;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -26,15 +27,22 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        initialisePanel(savedInstanceState);
+        connectGoogleApi();
+        setupButton();
+        launchLocationIntentService();
+    }
 
+    private void initialisePanel(Bundle savedInstanceState) {
+        setContentView(R.layout.activity_main);
         lblLat = (TextView) findViewById(R.id.lblLat);
         lblLon = (TextView) findViewById(R.id.lblLon);
         lblTime = (TextView) findViewById(R.id.lblTime);
         btnUpdate = (Button) findViewById(R.id.btnUpdate);
+    }
 
+    private void connectGoogleApi() {
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addConnectionCallbacks(this)
@@ -43,13 +51,20 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     .build();
         }
         mGoogleApiClient.connect();
+    }
 
+    private void setupButton() {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
+    }
+
+    private void launchLocationIntentService() {
+        Intent locationService = new Intent(this, LocationIntentService.class);
+        startService(locationService);
     }
 
     @Override
