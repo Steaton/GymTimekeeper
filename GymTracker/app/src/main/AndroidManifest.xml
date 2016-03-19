@@ -20,7 +20,7 @@
         </activity>
 
         <service
-            android:name=".LocationIntentService"
+            android:name=".GymTimekeeperLocationTrackingService"
             android:enabled="true"
             android:exported="false" >
         </service>
