@@ -1,17 +1,17 @@
 package one.thing.well.gymtimekeeper.session;
 
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
-import one.thing.well.gymtimekeeper.persist.InTheGymFileReader;
-import one.thing.well.gymtimekeeper.persist.locationevent.InTheGymLocationEventFile;
-import one.thing.well.gymtimekeeper.persist.sessionsummary.GymSessionSummaryFile;
+import one.thing.well.gymtimekeeper.persist.LocationEventFileReader;
+import one.thing.well.gymtimekeeper.persist.locationevent.LocationEventFile;
+import one.thing.well.gymtimekeeper.persist.sessionsummary.SessionSummaryFile;
 
 public class SessionSummariser {
 
-    private InTheGymFileReader reader = new InTheGymFileReader(GymTimekeeperApplication.getAppContext());
+    private LocationEventFileReader reader = new LocationEventFileReader(GymTimekeeperApplication.getAppContext());
 
-    private InTheGymLocationEventFile locationEventFile;
+    private LocationEventFile locationEventFile;
 
-    public GymSessionSummaryFile summariseGymSessions() {
+    public SessionSummaryFile summariseGymSessions() {
         locationEventFile = reader.readGymLocationEventFile();
 
         return null;

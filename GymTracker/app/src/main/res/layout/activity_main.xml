@@ -12,8 +12,8 @@
         android:layout_alignRight="@+id/updateButton"
         android:layout_alignEnd="@+id/updateButton"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/btnUpdate"
-        android:layout_alignStart="@+id/btnUpdate" />
+        android:layout_alignLeft="@+id/updateButton"
+        android:layout_alignStart="@+id/updateButton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update"
-        android:id="@+id/btnUpdate"
+        android:id="@+id/updateButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 

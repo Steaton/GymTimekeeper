@@ -3,13 +3,14 @@ package one.thing.well.gymtimekeeper.display;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import one.thing.well.gymtimekeeper.R;
-import one.thing.well.gymtimekeeper.location.GymTimekeeperLocationTrackingService;
-import one.thing.well.gymtimekeeper.persist.InTheGymFileReader;
-import one.thing.well.gymtimekeeper.persist.locationevent.InTheGymLocationEventFile;
+import one.thing.well.gymtimekeeper.location.LocationTrackingService;
+import one.thing.well.gymtimekeeper.persist.LocationEventFileReader;
+import one.thing.well.gymtimekeeper.persist.locationevent.LocationEventFile;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,15 +22,16 @@ public class MainActivity extends AppCompatActivity {
 
     private Button updateButton;
 
-    private InTheGymFileReader fileReader;
+    private LocationEventFileReader fileReader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialisePanel(savedInstanceState);
+        setupUpdateButtonOnClickListener();
         launchLocationIntentService();
         startAutomaticLocationDisplayUpdatesThread();
-        fileReader = new InTheGymFileReader(getApplicationContext());
+        fileReader = new LocationEventFileReader(getApplicationContext());
     }
 
     private void initialisePanel(Bundle savedInstanceState) {
@@ -40,17 +42,32 @@ public class MainActivity extends AppCompatActivity {
         updateButton = (Button) findViewById(R.id.updateButton);
     }
 
+    private void setupUpdateButtonOnClickListener() {
+        updateButton.setOnClickListener(
+                new Button.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        updateButtonClicked();
+                    }
+                }
+        );
+    }
+
+    public void updateButtonClicked() {
+        System.out.println("This is: Update Button Clicked");
+    }
+
     private void launchLocationIntentService() {
-        Intent locationService = new Intent(this, GymTimekeeperLocationTrackingService.class);
+        Intent locationService = new Intent(this, LocationTrackingService.class);
         startService(locationService);
     }
 
-    public void displayGymLocationEvents() {
-        InTheGymLocationEventFile file = fileReader.readGymLocationEventFile();
+    private void displayGymLocationEvents() {
+        LocationEventFile file = fileReader.readGymLocationEventFile();
         displayEvents(file);
     }
 
-    private void displayEvents(InTheGymLocationEventFile file) {
+    private void displayEvents(LocationEventFile file) {
         timeTextView.setText("Time\n" + file.buildDateList());
         latTextView.setText("Lat\n" + file.buildLatitudeList());
         lonTextView.setText("Lon\n" + file.buildLongitudeList());

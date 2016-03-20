@@ -21,7 +21,7 @@
         </activity>
 
         <service
-            android:name="one.thing.well.gymtimekeeper.location.GymTimekeeperLocationTrackingService"
+            android:name=".location.LocationTrackingService"
             android:enabled="true"
             android:exported="false" >
         </service>
