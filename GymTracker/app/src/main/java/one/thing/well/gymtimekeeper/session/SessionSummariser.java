@@ -1,7 +1,7 @@
 package one.thing.well.gymtimekeeper.session;
 
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
-import one.thing.well.gymtimekeeper.persist.LocationEventFileReader;
+import one.thing.well.gymtimekeeper.persist.locationevent.LocationEventFileReader;
 import one.thing.well.gymtimekeeper.persist.locationevent.LocationEventFile;
 import one.thing.well.gymtimekeeper.persist.sessionsummary.SessionSummaryFile;
 

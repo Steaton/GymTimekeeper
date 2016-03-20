@@ -9,13 +9,13 @@ import one.thing.well.gymtimekeeper.persist.FileWritingConstants;
 
 public class SessionSummaryEntry {
 
-    private Date sessionStartDate;
+    private Date sessionStartTime;
 
-    private Date sessionEndDate;
+    private Date sessionEndTime;
 
-    public SessionSummaryEntry(Date sessionStartDate, Date sessionEndDate) {
-        this.sessionStartDate = sessionStartDate;
-        this.sessionEndDate = sessionEndDate;
+    public SessionSummaryEntry(Date sessionStartTime, Date sessionEndTime) {
+        this.sessionStartTime = sessionStartTime;
+        this.sessionEndTime = sessionEndTime;
     }
 
     public SessionSummaryEntry(String sessionSummaryString) throws ParseException {
@@ -25,20 +25,20 @@ public class SessionSummaryEntry {
     private void parseSessionSummaryString(String sessionSummaryString) throws ParseException {
         String[] fields = sessionSummaryString.split(FileWritingConstants.SPLITTER);
         DateFormat dateFormat = new SimpleDateFormat(FileWritingConstants.DATE_FORMAT);
-        sessionStartDate = dateFormat.parse(fields[0]);
-        sessionEndDate = dateFormat.parse(fields[1]);
+        sessionStartTime = dateFormat.parse(fields[0]);
+        sessionEndTime = dateFormat.parse(fields[1]);
     }
 
-    public Date getSessionStartDate() {
-        return sessionStartDate;
+    public Date getSessionStartTime() {
+        return sessionStartTime;
     }
 
-    public Date getSessionEndDate() {
-        return sessionEndDate;
+    public Date getSessionEndTime() {
+        return sessionEndTime;
     }
 
     @Override
     public String toString() {
-        return sessionStartDate + FileWritingConstants.SPLITTER + sessionEndDate;
+        return sessionStartTime + FileWritingConstants.SPLITTER + sessionEndTime;
     }
 }

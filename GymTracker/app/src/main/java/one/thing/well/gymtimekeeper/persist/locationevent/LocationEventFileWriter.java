@@ -1,4 +1,4 @@
-package one.thing.well.gymtimekeeper.persist;
+package one.thing.well.gymtimekeeper.persist.locationevent;
 
 import android.content.Context;
 import android.location.Location;
