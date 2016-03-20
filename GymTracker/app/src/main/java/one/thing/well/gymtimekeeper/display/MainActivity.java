@@ -7,10 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
+
 import one.thing.well.gymtimekeeper.R;
-import one.thing.well.gymtimekeeper.location.LocationTrackingService;
-import one.thing.well.gymtimekeeper.persist.locationevent.LocationEventFileReader;
-import one.thing.well.gymtimekeeper.persist.locationevent.LocationEventFile;
+import one.thing.well.gymtimekeeper.datastore.AbstractFileWriter;
+import one.thing.well.gymtimekeeper.datastore.FileReader;
+import one.thing.well.gymtimekeeper.datastore.FileWritingConstants;
+import one.thing.well.gymtimekeeper.datastore.locationfix.LocationFixFileWriter;
+import one.thing.well.gymtimekeeper.locationservice.LocationTrackingService;
+import one.thing.well.gymtimekeeper.datastore.locationevent.LocationEventFile;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Button updateButton;
 
-    private LocationEventFileReader fileReader;
+    private FileReader fileReader;
+
+    private Double lastLongitude;
+
+    private Double lastLatitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setupUpdateButtonOnClickListener();
         launchLocationIntentService();
         startAutomaticLocationDisplayUpdatesThread();
-        fileReader = new LocationEventFileReader(getApplicationContext());
+        fileReader = new FileReader(getApplicationContext());
     }
 
     private void initialisePanel(Bundle savedInstanceState) {
@@ -54,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateButtonClicked() {
-        System.out.println("This is: Update Button Clicked");
+        System.out.println("Location fixed to be: " + lastLatitude + "," + lastLongitude);
+        AbstractFileWriter fileWriter = new LocationFixFileWriter(getApplicationContext());
+        fileWriter.writeFileEntry(lastLatitude, lastLongitude, FileWritingConstants.LOCATION_FIX_FILENAME);
     }
 
     private void launchLocationIntentService() {
@@ -62,12 +73,14 @@ public class MainActivity extends AppCompatActivity {
         startService(locationService);
     }
 
-    private void displayGymLocationEvents() {
-        LocationEventFile file = fileReader.readGymLocationEventFile();
+    private void displayLocationEvents() throws IOException {
+        LocationEventFile file = (LocationEventFile) fileReader.readFile(FileWritingConstants.LOCATION_EVENTS_FILENAME);
         displayEvents(file);
     }
 
     private void displayEvents(LocationEventFile file) {
+        lastLatitude = file.getLastLatitude();
+        lastLongitude = file.getLastLongitude();
         timeTextView.setText("Time\n" + file.buildDateList());
         latTextView.setText("Lat\n" + file.buildLatitudeList());
         lonTextView.setText("Lon\n" + file.buildLongitudeList());
@@ -83,7 +96,11 @@ public class MainActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                displayGymLocationEvents();
+                                try {
+                                    displayLocationEvents();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             }
                         });
                     }
