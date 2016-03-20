@@ -3,10 +3,12 @@ package com.example.zeko.gymtracker;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -14,9 +16,13 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Objects;
 
 public class GymTimekeeperLocationTrackingService extends Service
         implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -26,6 +32,7 @@ public class GymTimekeeperLocationTrackingService extends Service
     private LocationRequest locationRequest;
 
     private InTheGymFileWriter fileWriter = new InTheGymFileWriter();
+
 
     public GymTimekeeperLocationTrackingService() {
         super();
@@ -99,8 +106,18 @@ public class GymTimekeeperLocationTrackingService extends Service
     }
 
     private void writeInTheGymEvent(Location location) throws FileNotFoundException {
-        FileOutputStream outputStream = openFileOutput("InTheGym", Context.MODE_PRIVATE);
-        fileWriter.writeIsInTheGymEvent(outputStream, location);
+
+
+        String TextAtFile = TextAtFile();
+
+
+        if(TextAtFile != "Error") {
+            FileOutputStream outputStream = openFileOutput("InTheGym", Context.MODE_PRIVATE);
+            fileWriter.writeIsInTheGymEvent(outputStream, location, TextAtFile);
+        }else{
+            Toast.makeText(GymTimekeeperLocationTrackingService.this, "Error", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void closeTheOutputStream(FileOutputStream outputStream) {
@@ -111,5 +128,42 @@ public class GymTimekeeperLocationTrackingService extends Service
                 e1.printStackTrace();
             }
         }
+    }
+
+
+
+
+    // Might need its own class as its used twice here and in main activity
+    private String TextAtFile(){
+
+        String Result  ;
+
+        try{
+            FileInputStream fis = getApplicationContext().openFileInput("InTheGym");
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader bufferedReader = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String line,FullText= "";
+
+            while ((line = bufferedReader.readLine()) != null) {
+                FullText = FullText + line;
+            }
+            bufferedReader.close();
+            isr.close();
+            fis.close();
+
+            Result = FullText;
+
+
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Result = "";
+        } catch (IOException e) {
+            e.printStackTrace();
+            Result = "Error";
+        }
+
+        return Result;
+
     }
 }
