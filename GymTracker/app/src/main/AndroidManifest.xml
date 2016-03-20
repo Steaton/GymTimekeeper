@@ -10,9 +10,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:name="one.thing.well.gymtimekeeper.GymTimekeeperApplication">
 
-        <activity android:name="one.thing.well.gymtimekeeper.MainActivity" >
+        <activity android:name="one.thing.well.gymtimekeeper.display.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -20,7 +21,7 @@
         </activity>
 
         <service
-            android:name="one.thing.well.gymtimekeeper.GymTimekeeperLocationTrackingService"
+            android:name="one.thing.well.gymtimekeeper.location.GymTimekeeperLocationTrackingService"
             android:enabled="true"
             android:exported="false" >
         </service>
