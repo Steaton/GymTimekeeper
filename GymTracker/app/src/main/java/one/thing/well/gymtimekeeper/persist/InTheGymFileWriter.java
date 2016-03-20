@@ -10,8 +10,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
-
 public class InTheGymFileWriter {
 
     private Context context;
@@ -20,42 +18,46 @@ public class InTheGymFileWriter {
         this.context = context;
     }
 
-    public void writeIsInTheGymEvent(FileOutputStream outputStream, Location location,String FullText) {
+    public void writeIsInTheGymEvent(Location location) {
         String inTheGymNowString = buildFileEntry(location);
-        writeFileEntry(outputStream, inTheGymNowString,FullText);
+        writeInTheGymLocationEvent(inTheGymNowString);
     }
 
     @NonNull
     private String buildFileEntry(Location location) {
-        String inTheGymNowString = getTimeInMillis() + "," + getLocationInformation(location);
-        System.out.println(inTheGymNowString);
-        return inTheGymNowString;
+        InTheGymLocationEvent locationEvent = new InTheGymLocationEvent(getFormattedTime(), location.getLatitude(), location.getLongitude());
+        return locationEvent.toString();
     }
 
-    @NonNull
-    private String getLocationInformation(Location location) {
-        return location.getLatitude() + ","
-                + location.getLongitude();
-    }
-
-    private String getTimeInMillis() {
+    private String getFormattedTime() {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM HH:mm:ss");
         Date date = new Date();
         return dateFormat.format(date);
     }
 
-    private void writeFileEntry(FileOutputStream outputStream, String inTheGymNowString,String FullText) {
+    private void writeInTheGymLocationEvent(String inTheGymNowString) {
+        FileOutputStream outputStream = null;
         try {
-            String TheNewFile =  inTheGymNowString + "#"+ FullText;
-            outputStream.write( TheNewFile.getBytes());
+            outputStream = writeFileEntry(inTheGymNowString + "\n");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                outputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            closeOutputStream(outputStream);
+        }
+    }
+
+    @NonNull
+    private FileOutputStream writeFileEntry(String inTheGymNowString) throws IOException {
+        FileOutputStream outputStream = context.openFileOutput("InTheGymLocationEvents", Context.MODE_APPEND);
+        outputStream.write(inTheGymNowString.getBytes());
+        return outputStream;
+    }
+
+    private void closeOutputStream(FileOutputStream outputStream) {
+        try {
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

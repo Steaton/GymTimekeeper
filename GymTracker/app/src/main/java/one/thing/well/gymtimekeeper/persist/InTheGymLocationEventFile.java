@@ -18,4 +18,33 @@ public class InTheGymLocationEventFile {
     public List<InTheGymLocationEvent> getLocationEventList() {
         return locationEventList;
     }
+
+    public String buildDateList() {
+        StringBuilder dateList = new StringBuilder();
+        for (InTheGymLocationEvent locationEvent : locationEventList) {
+            dateList.append(locationEvent.getTime() + "\n");
+        }
+        return dateList.toString();
+    }
+
+    public String buildLatitudeList() {
+        StringBuilder latitudeList = new StringBuilder();
+        for (InTheGymLocationEvent locationEvent : locationEventList) {
+            latitudeList.append(locationEvent.getLatitude() + "\n");
+        }
+        return latitudeList.toString();
+    }
+
+    public String buildLongitudeList() {
+        StringBuilder longitudeList = new StringBuilder();
+        for (InTheGymLocationEvent locationEvent : locationEventList) {
+            longitudeList.append(locationEvent.getLongitude() + "\n");
+        }
+        return longitudeList.toString();
+    }
+
+    public void addEvent(String line) {
+        InTheGymLocationEvent inTheGymLocationEvent = new InTheGymLocationEvent(line);
+        locationEventList.add(inTheGymLocationEvent);
+    }
 }
