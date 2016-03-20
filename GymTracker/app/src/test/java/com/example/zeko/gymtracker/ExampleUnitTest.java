@@ -1,4 +1,4 @@
-package com.example.zeko.gymtracker;
+package com.example.zeko.gymtimekeeper;
 
 import org.junit.Test;
 

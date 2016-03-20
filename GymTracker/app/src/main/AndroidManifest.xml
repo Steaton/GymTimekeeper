@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.zeko.gymtracker" >
+    package="com.example.zeko.gymtimekeeper" >
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
 
-        <activity android:name=".MainActivity" >
+        <activity android:name="one.thing.well.gymtimekeeper.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -20,7 +20,7 @@
         </activity>
 
         <service
-            android:name=".GymTimekeeperLocationTrackingService"
+            android:name="one.thing.well.gymtimekeeper.GymTimekeeperLocationTrackingService"
             android:enabled="true"
             android:exported="false" >
         </service>

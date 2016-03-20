@@ -1,9 +1,8 @@
-package com.example.zeko.gymtracker;
+package one.thing.well.gymtimekeeper;
 
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -22,7 +21,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Objects;
 
 public class GymTimekeeperLocationTrackingService extends Service
         implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -106,10 +104,8 @@ public class GymTimekeeperLocationTrackingService extends Service
     }
 
     private void writeInTheGymEvent(Location location) throws FileNotFoundException {
-
-
+        
         String TextAtFile = TextAtFile();
-
 
         if(TextAtFile != "Error") {
             FileOutputStream outputStream = openFileOutput("InTheGym", Context.MODE_PRIVATE);

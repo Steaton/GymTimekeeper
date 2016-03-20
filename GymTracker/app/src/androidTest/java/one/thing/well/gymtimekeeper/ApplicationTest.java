@@ -1,4 +1,4 @@
-package com.example.zeko.gymtracker;
+package one.thing.well.gymtimekeeper;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
