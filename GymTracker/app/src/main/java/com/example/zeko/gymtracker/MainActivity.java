@@ -1,8 +1,6 @@
 package com.example.zeko.gymtracker;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,55 +10,32 @@ import android.widget.TextView;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnUpdate;
-    TextView lblLat;
-    TextView lblLon;
-    TextView lblTime;
+    Button updateButton;
+    TextView latTextView;
+    TextView lonTextView;
+    TextView timeTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialisePanel(savedInstanceState);
-        setupButton();
         launchLocationIntentService();
-        AutoMater();
-
+        startAutomaticLocationDisplayUpdatesThread();
     }
-
-
 
     private void initialisePanel(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
-        lblLat = (TextView) findViewById(R.id.lblLat);
-        lblLon = (TextView) findViewById(R.id.lblLon);
-        lblTime = (TextView) findViewById(R.id.lblTime);
-        btnUpdate = (Button) findViewById(R.id.btnUpdate);
-    }
-
-    private void setupButton() {
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                InfoReader();
-
-
-                Intent locationService = new Intent(MainActivity.this, GymTimekeeperLocationTrackingService.class);
-                stopService(locationService);
-
-
-            }
-        });
+        latTextView = (TextView) findViewById(R.id.latTextView);
+        lonTextView = (TextView) findViewById(R.id.lonTextView);
+        timeTextView = (TextView) findViewById(R.id.timeTextView);
+        updateButton = (Button) findViewById(R.id.updateButton);
     }
 
     private void launchLocationIntentService() {
@@ -69,62 +44,44 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-     public void InfoReader(){
+    public void readInTheGymLocationFile() {
 
-
-        lblLat.setText("lat");
-        lblLon.setText("Lon");
-        lblTime.setText("Time");
+        latTextView.setText("Lat");
+        lonTextView.setText("Lon");
+        timeTextView.setText("Time");
 
         try {
-        FileInputStream fis = getApplicationContext().openFileInput("InTheGym");
-        InputStreamReader isr = new InputStreamReader(fis);
-        BufferedReader bufferedReader = new BufferedReader(isr);
-        StringBuilder sb = new StringBuilder();
-        String line,i1 = "",i2 = "",i3 = "";
-        while ((line = bufferedReader.readLine()) != null) {
-
-            String[] Items = line.split("#");
-
-            for(int i = 0;i< Items.length;i++){
-
-                String[] Singles = Items[i].split(",");
-
-                i1 = i1 + "\n" + Singles[0].replace("#","");
-                i2 = i2 + "\n" + Singles[1];
-                i3 = i3 + "\n" + Singles[2];
-
-
+            FileInputStream fileInputStream = getApplicationContext().openFileInput("InTheGym");
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String line, i1 = "", i2 = "", i3 = "";
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] Items = line.split("#");
+                for (int i = 0; i < Items.length; i++) {
+                    String[] Singles = Items[i].split(",");
+                    i1 = i1 + "\n" + Singles[0].replace("#", "");
+                    i2 = i2 + "\n" + Singles[1];
+                    i3 = i3 + "\n" + Singles[2];
+                }
             }
-
-
-
-
-        }
-
-            lblTime.setText(lblTime.getText() + "\n" + i1);
-            lblLat.setText(lblLat.getText() + "\n" + i2);
-            lblLon.setText(lblLon.getText() + "\n" + i3);
-
-
+            timeTextView.setText(timeTextView.getText() + "\n" + i1);
+            latTextView.setText(latTextView.getText() + "\n" + i2);
+            lonTextView.setText(lonTextView.getText() + "\n" + i3);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-     }
+    }
 
 
-    void AutoMater(){
-
-
+    private void startAutomaticLocationDisplayUpdatesThread() {
         Thread t = new Thread() {
-
             @Override
             public void run() {
                 try {
@@ -133,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                InfoReader();
+                                readInTheGymLocationFile();
                             }
                         });
                     }
@@ -141,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-
         t.start();
     }
 

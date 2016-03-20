@@ -29,13 +29,11 @@ public class InTheGymFileWriter {
     @NonNull
     private String getLocationInformation(Location location) {
         return location.getLatitude() + ","
-                + location.getLongitude()// + ","
-                //+ location.getAccuracy();
-        ;
+                + location.getLongitude();
     }
 
     private String getTimeInMillis() {
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM HH:mm:ss");
         Date date = new Date();
         return dateFormat.format(date);
     }
