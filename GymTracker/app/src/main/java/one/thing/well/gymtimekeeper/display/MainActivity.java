@@ -12,7 +12,7 @@ import java.io.IOException;
 import one.thing.well.gymtimekeeper.R;
 import one.thing.well.gymtimekeeper.datastore.AbstractFileWriter;
 import one.thing.well.gymtimekeeper.datastore.FileReader;
-import one.thing.well.gymtimekeeper.datastore.FileWritingConstants;
+import one.thing.well.gymtimekeeper.datastore.FileConstants;
 import one.thing.well.gymtimekeeper.datastore.locationfix.LocationFixFileWriter;
 import one.thing.well.gymtimekeeper.locationservice.LocationTrackingService;
 import one.thing.well.gymtimekeeper.datastore.locationevent.LocationEventFile;
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     public void updateButtonClicked() {
         System.out.println("Location fixed to be: " + lastLatitude + "," + lastLongitude);
         AbstractFileWriter fileWriter = new LocationFixFileWriter(getApplicationContext());
-        fileWriter.writeFileEntry(lastLatitude, lastLongitude, FileWritingConstants.LOCATION_FIX_FILENAME);
+        fileWriter.writeFileEntry(lastLatitude, lastLongitude, FileConstants.LOCATION_FIX_FILENAME);
     }
 
     private void launchLocationIntentService() {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayLocationEvents() throws IOException {
-        LocationEventFile file = (LocationEventFile) fileReader.readFile(FileWritingConstants.LOCATION_EVENTS_FILENAME);
+        LocationEventFile file = (LocationEventFile) fileReader.readFile(FileConstants.LOCATION_EVENTS_FILENAME);
         displayEvents(file);
     }
 

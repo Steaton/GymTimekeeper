@@ -40,6 +40,10 @@ public class LocationEventFile {
         locationEventList.add(locationEventEntry);
     }
 
+    public List<LocationEventEntry> getLocationEventList() {
+        return locationEventList;
+    }
+
     public Double getLastLatitude() {
         return locationEventList.get(locationEventList.size() -1).getLatitude();
     }

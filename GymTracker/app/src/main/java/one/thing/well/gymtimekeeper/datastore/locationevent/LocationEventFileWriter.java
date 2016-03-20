@@ -1,17 +1,14 @@
 package one.thing.well.gymtimekeeper.datastore.locationevent;
 
 import android.content.Context;
-import android.location.Location;
 import android.support.annotation.NonNull;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import one.thing.well.gymtimekeeper.datastore.AbstractFileWriter;
-import one.thing.well.gymtimekeeper.datastore.FileWritingConstants;
+import one.thing.well.gymtimekeeper.datastore.FileConstants;
 
 public class LocationEventFileWriter extends AbstractFileWriter {
 
@@ -27,7 +24,7 @@ public class LocationEventFileWriter extends AbstractFileWriter {
     }
 
     private String getFormattedTime() {
-        DateFormat dateFormat = new SimpleDateFormat(FileWritingConstants.DATE_FORMAT);
+        DateFormat dateFormat = new SimpleDateFormat(FileConstants.DATE_FORMAT);
         Date date = new Date();
         return dateFormat.format(date);
     }

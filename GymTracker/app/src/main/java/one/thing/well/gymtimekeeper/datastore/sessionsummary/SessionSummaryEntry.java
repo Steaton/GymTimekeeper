@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import one.thing.well.gymtimekeeper.datastore.FileWritingConstants;
+import one.thing.well.gymtimekeeper.datastore.FileConstants;
 
 public class SessionSummaryEntry {
 
@@ -23,8 +23,8 @@ public class SessionSummaryEntry {
     }
 
     private void parseSessionSummaryString(String sessionSummaryString) throws ParseException {
-        String[] fields = sessionSummaryString.split(FileWritingConstants.SPLITTER);
-        DateFormat dateFormat = new SimpleDateFormat(FileWritingConstants.DATE_FORMAT);
+        String[] fields = sessionSummaryString.split(FileConstants.SPLITTER);
+        DateFormat dateFormat = new SimpleDateFormat(FileConstants.DATE_FORMAT);
         sessionStartTime = dateFormat.parse(fields[0]);
         sessionEndTime = dateFormat.parse(fields[1]);
     }
@@ -39,6 +39,6 @@ public class SessionSummaryEntry {
 
     @Override
     public String toString() {
-        return sessionStartTime + FileWritingConstants.SPLITTER + sessionEndTime;
+        return sessionStartTime + FileConstants.SPLITTER + sessionEndTime;
     }
 }

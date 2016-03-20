@@ -1,6 +1,6 @@
 package one.thing.well.gymtimekeeper.datastore;
 
-public class FileWritingConstants {
+public class FileConstants {
 
     public static final String SPLITTER = "#";
 

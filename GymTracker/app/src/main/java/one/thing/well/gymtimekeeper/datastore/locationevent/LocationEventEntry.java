@@ -1,6 +1,6 @@
 package one.thing.well.gymtimekeeper.datastore.locationevent;
 
-import one.thing.well.gymtimekeeper.datastore.FileWritingConstants;
+import one.thing.well.gymtimekeeper.datastore.FileConstants;
 
 public class LocationEventEntry {
 
@@ -21,7 +21,7 @@ public class LocationEventEntry {
     }
 
     public void parseString(String locationEventString) {
-        String[] fields = locationEventString.split(FileWritingConstants.SPLITTER);
+        String[] fields = locationEventString.split(FileConstants.SPLITTER);
         time = fields[0];
         latitude = Double.valueOf(fields[1]);
         longitude = Double.valueOf(fields[2]);
@@ -41,6 +41,6 @@ public class LocationEventEntry {
 
     @Override
     public String toString() {
-        return  time + FileWritingConstants.SPLITTER + latitude + FileWritingConstants.SPLITTER + longitude;
+        return  time + FileConstants.SPLITTER + latitude + FileConstants.SPLITTER + longitude;
     }
 }
