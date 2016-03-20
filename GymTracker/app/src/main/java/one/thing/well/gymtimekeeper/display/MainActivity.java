@@ -9,7 +9,7 @@ import android.widget.TextView;
 import one.thing.well.gymtimekeeper.R;
 import one.thing.well.gymtimekeeper.location.GymTimekeeperLocationTrackingService;
 import one.thing.well.gymtimekeeper.persist.InTheGymFileReader;
-import one.thing.well.gymtimekeeper.persist.InTheGymLocationEventFile;
+import one.thing.well.gymtimekeeper.persist.locationevent.InTheGymLocationEventFile;
 
 public class MainActivity extends AppCompatActivity {
 

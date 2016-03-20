@@ -1,4 +1,4 @@
-package one.thing.well.gymtimekeeper.persist;
+package one.thing.well.gymtimekeeper.persist.locationevent;
 
 public class InTheGymLocationEvent {
 
@@ -31,24 +31,12 @@ public class InTheGymLocationEvent {
         return time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
-
     public Double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
-
     public Double getLongitude() {
         return longitude;
-    }
-
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
     }
 
     @Override

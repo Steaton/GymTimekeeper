@@ -8,7 +8,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+
+import one.thing.well.gymtimekeeper.persist.locationevent.InTheGymLocationEventFile;
 
 public class InTheGymFileReader {
 

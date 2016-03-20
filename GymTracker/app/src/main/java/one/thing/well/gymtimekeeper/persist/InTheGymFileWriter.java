@@ -10,7 +10,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import one.thing.well.gymtimekeeper.persist.locationevent.InTheGymLocationEvent;
+
 public class InTheGymFileWriter {
+
+    public static final String DATE_FORMAT = "dd/MM HH:mm:ss";
 
     private Context context;
 
@@ -30,7 +34,7 @@ public class InTheGymFileWriter {
     }
 
     private String getFormattedTime() {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);
         Date date = new Date();
         return dateFormat.format(date);
     }

@@ -1,4 +1,4 @@
-package one.thing.well.gymtimekeeper.persist;
+package one.thing.well.gymtimekeeper.persist.locationevent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +9,6 @@ public class InTheGymLocationEventFile {
 
     public InTheGymLocationEventFile() {
         locationEventList = new ArrayList<InTheGymLocationEvent>();
-    }
-
-    public InTheGymLocationEventFile(List<InTheGymLocationEvent> locationEventList) {
-        this.locationEventList = locationEventList;
-    }
-
-    public List<InTheGymLocationEvent> getLocationEventList() {
-        return locationEventList;
     }
 
     public String buildDateList() {
