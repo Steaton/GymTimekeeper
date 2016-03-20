@@ -1,8 +1,8 @@
 package one.thing.well.gymtimekeeper.persist.locationevent;
 
-public class InTheGymLocationEvent {
+import one.thing.well.gymtimekeeper.persist.FileWritingConstants;
 
-    public static final String SPLITTER = "#";
+public class InTheGymLocationEventEntry {
 
     private String time;
 
@@ -10,18 +10,18 @@ public class InTheGymLocationEvent {
 
     private Double longitude;
 
-    public InTheGymLocationEvent(String time, Double latitude, Double longitude) {
+    public InTheGymLocationEventEntry(String time, Double latitude, Double longitude) {
         this.time = time;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public InTheGymLocationEvent(String line) {
-        parseString(line);
+    public InTheGymLocationEventEntry(String locationEventString) {
+        parseString(locationEventString);
     }
 
-    public void parseString(String line) {
-        String[] fields = line.split(SPLITTER);
+    public void parseString(String locationEventString) {
+        String[] fields = locationEventString.split(FileWritingConstants.SPLITTER);
         time = fields[0];
         latitude = Double.valueOf(fields[1]);
         longitude = Double.valueOf(fields[2]);
@@ -41,6 +41,6 @@ public class InTheGymLocationEvent {
 
     @Override
     public String toString() {
-        return  time + SPLITTER + latitude + SPLITTER + longitude;
+        return  time + FileWritingConstants.SPLITTER + latitude + FileWritingConstants.SPLITTER + longitude;
     }
 }

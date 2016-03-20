@@ -5,10 +5,10 @@ import java.util.List;
 
 public class GymSessionSummaryFile {
 
-    private List<GymSessionSummary> locationEventList;
+    private List<GymSessionSummaryEntry> locationEventList;
 
     public GymSessionSummaryFile() {
-        locationEventList = new ArrayList<GymSessionSummary>();
+        locationEventList = new ArrayList<GymSessionSummaryEntry>();
     }
 }
 

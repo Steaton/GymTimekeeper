@@ -10,7 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import one.thing.well.gymtimekeeper.persist.locationevent.InTheGymLocationEvent;
+import one.thing.well.gymtimekeeper.persist.locationevent.InTheGymLocationEventEntry;
 
 public class InTheGymFileWriter {
 
@@ -29,7 +29,7 @@ public class InTheGymFileWriter {
 
     @NonNull
     private String buildFileEntry(Location location) {
-        InTheGymLocationEvent locationEvent = new InTheGymLocationEvent(getFormattedTime(), location.getLatitude(), location.getLongitude());
+        InTheGymLocationEventEntry locationEvent = new InTheGymLocationEventEntry(getFormattedTime(), location.getLatitude(), location.getLongitude());
         return locationEvent.toString();
     }
 

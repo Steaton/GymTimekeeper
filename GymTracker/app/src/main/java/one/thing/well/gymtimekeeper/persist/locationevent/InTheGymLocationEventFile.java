@@ -5,15 +5,15 @@ import java.util.List;
 
 public class InTheGymLocationEventFile {
 
-    private List<InTheGymLocationEvent> locationEventList;
+    private List<InTheGymLocationEventEntry> locationEventList;
 
     public InTheGymLocationEventFile() {
-        locationEventList = new ArrayList<InTheGymLocationEvent>();
+        locationEventList = new ArrayList<InTheGymLocationEventEntry>();
     }
 
     public String buildDateList() {
         StringBuilder dateList = new StringBuilder();
-        for (InTheGymLocationEvent locationEvent : locationEventList) {
+        for (InTheGymLocationEventEntry locationEvent : locationEventList) {
             dateList.append(locationEvent.getTime() + "\n");
         }
         return dateList.toString();
@@ -21,7 +21,7 @@ public class InTheGymLocationEventFile {
 
     public String buildLatitudeList() {
         StringBuilder latitudeList = new StringBuilder();
-        for (InTheGymLocationEvent locationEvent : locationEventList) {
+        for (InTheGymLocationEventEntry locationEvent : locationEventList) {
             latitudeList.append(locationEvent.getLatitude() + "\n");
         }
         return latitudeList.toString();
@@ -29,14 +29,14 @@ public class InTheGymLocationEventFile {
 
     public String buildLongitudeList() {
         StringBuilder longitudeList = new StringBuilder();
-        for (InTheGymLocationEvent locationEvent : locationEventList) {
+        for (InTheGymLocationEventEntry locationEvent : locationEventList) {
             longitudeList.append(locationEvent.getLongitude() + "\n");
         }
         return longitudeList.toString();
     }
 
     public void addEvent(String line) {
-        InTheGymLocationEvent inTheGymLocationEvent = new InTheGymLocationEvent(line);
-        locationEventList.add(inTheGymLocationEvent);
+        InTheGymLocationEventEntry inTheGymLocationEventEntry = new InTheGymLocationEventEntry(line);
+        locationEventList.add(inTheGymLocationEventEntry);
     }
 }
