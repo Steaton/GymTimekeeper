@@ -6,12 +6,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import one.thing.well.gymtimekeeper.datastore.FileConstants;
+import one.thing.well.gymtimekeeper.util.DateUtils;
 
 public class SessionSummaryEntry {
 
     private Date sessionStartTime;
 
     private Date sessionEndTime;
+
+    public SessionSummaryEntry() {
+    }
 
     public SessionSummaryEntry(Date sessionStartTime, Date sessionEndTime) {
         this.sessionStartTime = sessionStartTime;
@@ -24,7 +28,7 @@ public class SessionSummaryEntry {
 
     private void parseSessionSummaryString(String sessionSummaryString) throws ParseException {
         String[] fields = sessionSummaryString.split(FileConstants.SPLITTER);
-        DateFormat dateFormat = new SimpleDateFormat(FileConstants.DATE_FORMAT);
+        DateFormat dateFormat = new SimpleDateFormat(DateUtils.DATE_FORMAT);
         sessionStartTime = dateFormat.parse(fields[0]);
         sessionEndTime = dateFormat.parse(fields[1]);
     }
@@ -35,6 +39,14 @@ public class SessionSummaryEntry {
 
     public Date getSessionEndTime() {
         return sessionEndTime;
+    }
+
+    public void setSessionStartTime(Date sessionStartTime) {
+        this.sessionStartTime = sessionStartTime;
+    }
+
+    public void setSessionEndTime(Date sessionEndTime) {
+        this.sessionEndTime = sessionEndTime;
     }
 
     @Override
