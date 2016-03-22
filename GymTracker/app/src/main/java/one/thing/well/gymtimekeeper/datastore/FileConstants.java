@@ -7,5 +7,8 @@ public class FileConstants {
     public static final String LOCATION_FIX_FILENAME = "InTheGymLocationFix";
 
     public static final String LOCATION_EVENTS_FILENAME = "InTheGymLocationEvents";
+
+    public static final String DateFormat = "yyyy-MM-dd hh:mm:ss";
+
 }
 
