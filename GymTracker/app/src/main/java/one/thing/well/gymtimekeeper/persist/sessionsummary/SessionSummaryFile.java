@@ -5,10 +5,14 @@ import java.util.List;
 
 public class SessionSummaryFile {
 
-    private List<SessionSummaryEntry> locationEventList;
+    private List<SessionSummaryEntry> summaryEntries;
 
     public SessionSummaryFile() {
-        locationEventList = new ArrayList<SessionSummaryEntry>();
+        summaryEntries = new ArrayList<SessionSummaryEntry>();
+    }
+
+    public void add(SessionSummaryEntry sessionSummaryEntry) {
+        summaryEntries.add(sessionSummaryEntry);
     }
 }
 
