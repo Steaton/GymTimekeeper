@@ -6,11 +6,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.widget.Toolbar;
 import one.thing.well.gymtimekeeper.R;
 import one.thing.well.gymtimekeeper.location.LocationTrackingService;
 import one.thing.well.gymtimekeeper.persist.locationevent.LocationEventFileReader;
 import one.thing.well.gymtimekeeper.persist.locationevent.LocationEventFile;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,22 +30,39 @@ public class MainActivity extends AppCompatActivity {
 
     private LocationEventFileReader fileReader;
 
+
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    private ViewPager mViewPager;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initialisePanel(savedInstanceState);
-        setupUpdateButtonOnClickListener();
+  //      setupUpdateButtonOnClickListener();
+        CreateTabsForTheApp();
         launchLocationIntentService();
-        startAutomaticLocationDisplayUpdatesThread();
+    //    startAutomaticLocationDisplayUpdatesThread();
         fileReader = new LocationEventFileReader(getApplicationContext());
+
     }
+
+
+
+
 
     private void initialisePanel(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
+      /*
         timeTextView = (TextView) findViewById(R.id.timeTextView);
         latTextView = (TextView) findViewById(R.id.latTextView);
         lonTextView = (TextView) findViewById(R.id.lonTextView);
         updateButton = (Button) findViewById(R.id.updateButton);
+
+       */
+
     }
 
     private void setupUpdateButtonOnClickListener() {
@@ -68,9 +91,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayEvents(LocationEventFile file) {
-        timeTextView.setText("Time\n" + file.buildDateList());
-        latTextView.setText("Lat\n" + file.buildLatitudeList());
-        lonTextView.setText("Lon\n" + file.buildLongitudeList());
+     //   timeTextView.setText("Time\n" + file.buildDateList());
+     //   latTextView.setText("Lat\n" + file.buildLatitudeList());
+     //   lonTextView.setText("Lon\n" + file.buildLongitudeList());
     }
 
     private void startAutomaticLocationDisplayUpdatesThread() {
@@ -93,6 +116,62 @@ public class MainActivity extends AppCompatActivity {
         };
         t.start();
     }
+
+
+    @Override
+      public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+     private void CreateTabsForTheApp(){
+
+
+
+        try{
+
+         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+         setSupportActionBar(toolbar);
+
+
+         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+
+         mViewPager = (ViewPager) findViewById(R.id.container);
+         if (mViewPager != null) {
+             mViewPager.setAdapter(mSectionsPagerAdapter);
+         }
+
+
+         mViewPager = (ViewPager) findViewById(R.id.buttons);
+         if (mViewPager != null) {
+             mViewPager.setAdapter(mSectionsPagerAdapter);
+         }
+
+
+        }catch (Exception e){
+        e.printStackTrace();}
+     }
+
+
 }
 
 
