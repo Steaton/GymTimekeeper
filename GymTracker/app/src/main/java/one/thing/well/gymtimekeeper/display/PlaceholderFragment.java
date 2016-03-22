@@ -111,6 +111,8 @@ public class PlaceholderFragment extends android.support.v4.app.Fragment {
                         });
                     }
                 } catch (InterruptedException e) {
+                    e.printStackTrace();
+
                 }
             }
         };
