@@ -4,23 +4,9 @@ package one.thing.well.gymtimekeeper.display;
  * Created by zeko on 20/03/2016.
  */
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-
-import android.widget.TextView;
 
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -34,14 +20,34 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        // Return a First_Page (defined as a static inner class below).
+
+
+
+
+
+        if(position == 0){
+
+            return First_Page.newInstance();
+
+        }else if(position == 1){
+
+            return Second_Page.newInstance();
+
+        }else{
+
+            return First_Page.newInstance();
+        }
+
+
+
+
     }
 
     @Override
     public int getCount() {
         // Show 3 total pages.
-        return 3;
+        return 1;
     }
 
     @Override
