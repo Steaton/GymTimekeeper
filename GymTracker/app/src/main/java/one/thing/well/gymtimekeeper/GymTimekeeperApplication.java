@@ -10,9 +10,11 @@ public class GymTimekeeperApplication extends Application {
     public void onCreate() {
         super.onCreate();
         GymTimekeeperApplication.context = getApplicationContext();
+
     }
 
     public static Context getAppContext() {
         return GymTimekeeperApplication.context;
+
     }
 }
