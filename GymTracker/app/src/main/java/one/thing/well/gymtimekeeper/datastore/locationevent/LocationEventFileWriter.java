@@ -9,6 +9,7 @@ import java.util.Date;
 
 import one.thing.well.gymtimekeeper.datastore.AbstractFileWriter;
 import one.thing.well.gymtimekeeper.datastore.FileConstants;
+import one.thing.well.gymtimekeeper.util.DateUtils;
 
 public class LocationEventFileWriter extends AbstractFileWriter {
 
@@ -24,7 +25,7 @@ public class LocationEventFileWriter extends AbstractFileWriter {
     }
 
     private String getFormattedTime() {
-        DateFormat dateFormat = new SimpleDateFormat(FileConstants.DATE_FORMAT);
+        DateFormat dateFormat = new SimpleDateFormat(DateUtils.DATE_FORMAT);
         Date date = new Date();
         return dateFormat.format(date);
     }

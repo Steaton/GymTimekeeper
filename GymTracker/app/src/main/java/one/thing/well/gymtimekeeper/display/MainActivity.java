@@ -8,14 +8,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import one.thing.well.gymtimekeeper.R;
 import one.thing.well.gymtimekeeper.datastore.AbstractFileWriter;
-import one.thing.well.gymtimekeeper.datastore.FileReader;
 import one.thing.well.gymtimekeeper.datastore.FileConstants;
+import one.thing.well.gymtimekeeper.datastore.locationevent.LocationEventFileReader;
+import one.thing.well.gymtimekeeper.datastore.locationfix.LocationFixFileReader;
 import one.thing.well.gymtimekeeper.datastore.locationfix.LocationFixFileWriter;
+import one.thing.well.gymtimekeeper.datastore.sessionsummary.SessionSummaryFile;
 import one.thing.well.gymtimekeeper.locationservice.LocationTrackingService;
 import one.thing.well.gymtimekeeper.datastore.locationevent.LocationEventFile;
+import one.thing.well.gymtimekeeper.session.SessionSummary;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
     private Button updateButton;
 
-    private FileReader fileReader;
+    private LocationFixFileReader locationFixFileReader;
+
+    private LocationEventFileReader locationEventFileReader;
 
     private Double lastLongitude;
 
@@ -40,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         setupUpdateButtonOnClickListener();
         launchLocationIntentService();
         startAutomaticLocationDisplayUpdatesThread();
-        fileReader = new FileReader(getApplicationContext());
+        locationFixFileReader = new LocationFixFileReader(getApplicationContext());
+        locationEventFileReader = new LocationEventFileReader(getApplicationContext());
     }
 
     private void initialisePanel(Bundle savedInstanceState) {
@@ -65,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     public void updateButtonClicked() {
         System.out.println("Location fixed to be: " + lastLatitude + "," + lastLongitude);
         AbstractFileWriter fileWriter = new LocationFixFileWriter(getApplicationContext());
+        fileWriter.deleteFile(FileConstants.LOCATION_FIX_FILENAME);
         fileWriter.writeFileEntry(lastLatitude, lastLongitude, FileConstants.LOCATION_FIX_FILENAME);
     }
 
@@ -74,16 +82,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayLocationEvents() throws IOException {
-        LocationEventFile file = (LocationEventFile) fileReader.readFile(FileConstants.LOCATION_EVENTS_FILENAME);
-        displayEvents(file);
+        LocationEventFile file = (LocationEventFile) locationEventFileReader.readFile(FileConstants.LOCATION_EVENTS_FILENAME);
+        displayLocationEvents(file);
     }
 
-    private void displayEvents(LocationEventFile file) {
+    private void displaySessionSummary() throws IOException, ParseException {
+        //SessionSummaryFile file = (SessionSummaryFile) locationFixFileReader.readFile(FileConstants.SESSION_SUMMARY_FILE);
+//        SessionSummaryFile file = new SessionSummary().loadData();
+//        displaySessionSummary(file);
+    }
+
+    private void displayLocationEvents(LocationEventFile file) {
         lastLatitude = file.getLastLatitude();
         lastLongitude = file.getLastLongitude();
-        timeTextView.setText("Time\n" + file.buildDateList());
-        latTextView.setText("Lat\n" + file.buildLatitudeList());
-        lonTextView.setText("Lon\n" + file.buildLongitudeList());
+//        timeTextView.setText("Time\n" + file.buildDateList());
+//        latTextView.setText("Lat\n" + file.buildLatitudeList());
+//        lonTextView.setText("Lon\n" + file.buildLongitudeList());
+    }
+
+    private void displaySessionSummary(SessionSummaryFile file) {
+        timeTextView.setText("Start Time\n" + file.buildStartTimeList());
+        latTextView.setText("End Time\n" + file.buildEndTimeList());
+        lonTextView.setText("Session Duration\n" + file.buildSessionDurationList());
     }
 
     private void startAutomaticLocationDisplayUpdatesThread() {
@@ -98,7 +118,10 @@ public class MainActivity extends AppCompatActivity {
                             public void run() {
                                 try {
                                     displayLocationEvents();
+                                    displaySessionSummary();
                                 } catch (IOException e) {
+                                    e.printStackTrace();
+                                } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
                             }

@@ -23,6 +23,10 @@ public abstract class AbstractFileWriter {
         writeInTheGymLocationEvent(fileEntry, filename);
     }
 
+    public void deleteFile(String filename) {
+        context.deleteFile(filename);
+    }
+
     private void writeInTheGymLocationEvent(String inTheGymNowString, String filename) {
         FileOutputStream outputStream = null;
         try {

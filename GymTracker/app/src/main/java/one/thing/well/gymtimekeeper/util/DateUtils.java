@@ -11,11 +11,18 @@ public class DateUtils {
 
     private static DateFormat dateFormat= new SimpleDateFormat(DateUtils.DATE_FORMAT);;
 
-    public static String formatTime(Date date) {
+    public static String formatDate(Date date) {
         return dateFormat.format(date);
     }
 
-    public static final Date parseDateString(String dateString) throws ParseException {
+    public static Date parseDateString(String dateString) throws ParseException {
         return dateFormat.parse(dateString);
+    }
+
+    public static Date addMinutesToDate(Date date, int minutes) {
+        long dateInMillis = date.getTime();
+        long milliseconds = dateInMillis + (minutes * 60 * 1000);
+        Date dateWithAddedMinutes = new Date(milliseconds);
+        return dateWithAddedMinutes;
     }
 }

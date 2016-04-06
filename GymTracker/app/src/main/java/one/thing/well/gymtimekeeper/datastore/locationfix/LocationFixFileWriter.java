@@ -1,7 +1,6 @@
 package one.thing.well.gymtimekeeper.datastore.locationfix;
 
 import android.content.Context;
-import android.location.Location;
 import android.support.annotation.NonNull;
 
 import one.thing.well.gymtimekeeper.datastore.AbstractFileWriter;

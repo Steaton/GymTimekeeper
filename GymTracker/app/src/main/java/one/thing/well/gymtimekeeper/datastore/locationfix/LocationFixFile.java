@@ -36,4 +36,8 @@ public class LocationFixFile {
     public String toString() {
         return latitude + FileConstants.SPLITTER + longitude;
     }
+
+    public void addEvent(String locationFixString) {
+
+    }
 }
