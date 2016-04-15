@@ -34,14 +34,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
     private void initialisePanel(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
     }
-
-
 
 
     private void launchLocationIntentService() {
@@ -73,34 +68,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     // This actually makes the TABs and allows for the app to call the other class
 
 
      private void CreateTabsForTheApp(){
-
-
 
         try{
 
          Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
          setSupportActionBar(toolbar);
 
-
          mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
 
          mViewPager = (ViewPager) findViewById(R.id.container);
          if (mViewPager != null) {
              mViewPager.setAdapter(mSectionsPagerAdapter);
          }
 
-
          mViewPager = (ViewPager) findViewById(R.id.buttons);
          if (mViewPager != null) {
              mViewPager.setAdapter(mSectionsPagerAdapter);
          }
-
 
         }catch (Exception e){
         e.printStackTrace();}
