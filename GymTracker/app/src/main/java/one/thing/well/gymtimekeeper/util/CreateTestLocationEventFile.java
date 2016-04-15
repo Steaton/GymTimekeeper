@@ -78,7 +78,8 @@ public class CreateTestLocationEventFile extends AndroidTestCase {
             outputStream = context.openFileOutput(FileConstants.LOCATION_EVENTS_FILENAME, Context.MODE_PRIVATE);
 
             for (LocationEventEntry locationEventEntry : locationQueue) {
-                outputStream.write(locationEventEntry.toString().getBytes());
+                String locationEventString = locationEventEntry.toString() + "\n";
+                outputStream.write(locationEventString.getBytes());
             }
 
         }catch (Exception e){

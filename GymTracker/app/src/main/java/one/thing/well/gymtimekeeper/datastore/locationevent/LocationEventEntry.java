@@ -41,6 +41,7 @@ public class LocationEventEntry {
 
     @Override
     public String toString() {
-        return  time + FileConstants.SPLITTER + latitude + FileConstants.SPLITTER + longitude;
+        String event = time + FileConstants.SPLITTER + latitude + FileConstants.SPLITTER + longitude;
+        return event;
     }
 }

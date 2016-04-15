@@ -66,7 +66,7 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
     private void GatheringDataForSessionsFragment() throws IOException, ParseException {
         SessionSummary sessionSummary =  new SessionSummary();
         sessionSummary.loadData();
-        SessionSummaryFile sessionSummaryFile = sessionSummary.getSessionSummaryFile();
+        SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
         System.out.println("#sesh" + sessionSummaryFile.getSessionsList().size());
 //        mylist.add(0, DataStore.buildStartTimeList() + " " + DataStore.buildSessionDurationList() + "Passed fine");
     }
