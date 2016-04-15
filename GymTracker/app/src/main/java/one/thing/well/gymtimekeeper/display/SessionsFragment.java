@@ -9,6 +9,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.R.layout;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
@@ -26,7 +28,8 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
     ArrayList<String> mylist = new ArrayList<>();
     private ArrayAdapter<String> ArraAdapterForSessions;
 
-    public static SessionsFragment newInstance(){
+    public static SessionsFragment newInstance() throws IOException, ParseException {
+
 
         SessionsFragment fragment = new SessionsFragment();
 
@@ -34,7 +37,7 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
     }
 
 
-    public SessionsFragment(){
+    public SessionsFragment() throws IOException, ParseException {
 
         GatheringDataForSessionsFragment();
 
@@ -60,12 +63,12 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
     }
 
 
-    private void GatheringDataForSessionsFragment(){
-
-        SessionSummaryFile DataStore = new SessionSummaryFile();
-
-         mylist.add(0,DataStore.buildStartTimeList() + " " + DataStore.buildSessionDurationList() + "Passed fine");
-
+    private void GatheringDataForSessionsFragment() throws IOException, ParseException {
+        SessionSummary sessionSummary =  new SessionSummary();
+        sessionSummary.loadData();
+        SessionSummaryFile sessionSummaryFile = sessionSummary.getSessionSummaryFile();
+        System.out.println("#sesh" + sessionSummaryFile.getSessionsList().size());
+//        mylist.add(0, DataStore.buildStartTimeList() + " " + DataStore.buildSessionDurationList() + "Passed fine");
     }
 
 }

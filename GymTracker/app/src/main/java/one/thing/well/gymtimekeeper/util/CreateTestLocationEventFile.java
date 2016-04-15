@@ -1,12 +1,19 @@
 package one.thing.well.gymtimekeeper.util;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.test.AndroidTestCase;
 
+import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
@@ -21,9 +28,11 @@ public class CreateTestLocationEventFile extends AndroidTestCase {
 
     private Date currentSessionDate;
 
-    private Context context = GymTimekeeperApplication.getAppContext();
+    private Context context;
 
     public void shouldWriteTestDataFiles() throws ParseException, IOException {
+        context = GymTimekeeperApplication.getAppContext();
+        System.out.println("#sesh1" + context.getApplicationContext());
         currentSessionDate = DateUtils.parseDateString("10/03 10:00:00");
         locationQueue = new ArrayBlockingQueue<>(50, true);
         addTenMinutesOutsideLocation();
@@ -63,13 +72,24 @@ public class CreateTestLocationEventFile extends AndroidTestCase {
     private void writeLocationEventFile() throws IOException {
         FileOutputStream outputStream = null;
         try {
+
             context.deleteFile(FileConstants.LOCATION_EVENTS_FILENAME);
-            outputStream = context.openFileOutput(FileConstants.LOCATION_EVENTS_FILENAME, Context.MODE_APPEND);
+
+            outputStream = context.openFileOutput(FileConstants.LOCATION_EVENTS_FILENAME, Context.MODE_PRIVATE);
+
             for (LocationEventEntry locationEventEntry : locationQueue) {
                 outputStream.write(locationEventEntry.toString().getBytes());
             }
-        } finally {
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
             outputStream.close();
         }
+
+
+
+
     }
 }

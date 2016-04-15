@@ -1,15 +1,12 @@
 package one.thing.well.gymtimekeeper.session;
 
 import android.location.Location;
-import android.support.annotation.NonNull;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
-
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
 import one.thing.well.gymtimekeeper.datastore.AbstractFileReader;
 import one.thing.well.gymtimekeeper.datastore.FileConstants;
@@ -81,7 +78,7 @@ public class SessionSummary {
         }
     }
 
-    @NonNull
+
     private SessionSummaryEntry findNextSession() throws ParseException {
         Date sessionStartStartTime = findSessionStartTime();
         if (sessionStartStartTime == null) return null;
