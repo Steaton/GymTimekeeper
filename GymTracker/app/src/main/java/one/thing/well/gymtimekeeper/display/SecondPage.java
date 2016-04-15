@@ -13,31 +13,21 @@ public class SecondPage extends android.support.v4.app.Fragment {
 
         SecondPage fragment = new SecondPage();
 
-
         return fragment;
     }
 
 
-
     public SecondPage(){
 
-
-
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
-
         View rootView = inflater.inflate(R.layout.second_page,container,false);
-
-
 
         return rootView;
     }
-
-
-
-
 
 }
