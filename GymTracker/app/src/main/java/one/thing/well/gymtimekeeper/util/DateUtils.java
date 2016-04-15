@@ -25,4 +25,12 @@ public class DateUtils {
         Date dateWithAddedMinutes = new Date(milliseconds);
         return dateWithAddedMinutes;
     }
+
+    public static String calculateDuration(Date start, Date end) {
+        long durationInMillis = end.getTime() - start.getTime();
+        long hours = durationInMillis / (60 * 60 * 1000) % 24;
+        durationInMillis -= durationInMillis - (hours * (60 * 60 * 1000));
+        long minutes = durationInMillis / (60 * 1000) % 60;;
+        return hours + "h " + minutes + "m";
+    }
 }
