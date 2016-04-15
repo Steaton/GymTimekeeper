@@ -8,9 +8,13 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+
+import java.io.IOException;
+import java.text.ParseException;
+
 import one.thing.well.gymtimekeeper.R;
 import one.thing.well.gymtimekeeper.locationservice.LocationTrackingService;
-
+import one.thing.well.gymtimekeeper.util.CreateTestLocationEventFile;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
 
+    private CreateTestLocationEventFile createTestLocationEventFile = new CreateTestLocationEventFile();
 
 
     @Override
@@ -30,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initialisePanel(savedInstanceState);
         CreateTabsForTheApp();
+        try {
+            createTestLocationEventFile.shouldWriteTestDataFiles();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         launchLocationIntentService();
     }
 

@@ -36,10 +36,7 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
 
     public SessionsFragment(){
 
-        // Here I need to set the mylist list to have the correct info
-
         GatheringDataForSessionsFragment();
-
 
     }
 
@@ -63,20 +60,12 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
     }
 
 
-
     private void GatheringDataForSessionsFragment(){
 
         SessionSummaryFile DataStore = new SessionSummaryFile();
 
-
          mylist.add(0,DataStore.buildStartTimeList() + " " + DataStore.buildSessionDurationList() + "Passed fine");
 
-
-
-
     }
-
-
-
 
 }
