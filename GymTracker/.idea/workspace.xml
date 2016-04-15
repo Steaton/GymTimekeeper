@@ -2788,7 +2788,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460750380280</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Please update to this">
+      <created>1460750401852</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1460750401852</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2873,7 +2879,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added the feature where by there could be tabed options there is a Fragment java class for a second page but is not used as i only developed one page to use it only one varibale has to be changed. &#10;The change in this allows for a sessions view in a fragment that has a list of the sessions these sessions are not real info i am waiting for your code to make this real info" />
     <MESSAGE value="Please check just tried to make sure that my code is synced will with your code well" />
-    <option name="LAST_COMMIT_MESSAGE" value="Please check just tried to make sure that my code is synced will with your code well" />
+    <MESSAGE value="Please update to this" />
+    <option name="LAST_COMMIT_MESSAGE" value="Please update to this" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
