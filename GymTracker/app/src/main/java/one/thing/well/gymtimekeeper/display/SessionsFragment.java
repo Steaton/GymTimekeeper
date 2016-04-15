@@ -12,10 +12,12 @@ import android.R.layout;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
 import one.thing.well.gymtimekeeper.R;
 import one.thing.well.gymtimekeeper.datastore.locationevent.LocationEventFile;
+import one.thing.well.gymtimekeeper.datastore.sessionsummary.SessionSummaryEntry;
 import one.thing.well.gymtimekeeper.datastore.sessionsummary.SessionSummaryFile;
 import one.thing.well.gymtimekeeper.session.SessionSummary;
 
@@ -29,36 +31,22 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
     private ArrayAdapter<String> ArraAdapterForSessions;
 
     public static SessionsFragment newInstance() throws IOException, ParseException {
-
-
         SessionsFragment fragment = new SessionsFragment();
-
         return fragment;
     }
 
-
     public SessionsFragment() throws IOException, ParseException {
-
         GatheringDataForSessionsFragment();
-
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-
         View rootView = inflater.inflate(R.layout.sessions_fragment,container,false);
-
         TextView SessionsTextView = (TextView) rootView.findViewById(R.id.SessionsTextView);
-
         SessionsListVIew = (ListView) rootView.findViewById(R.id.SessionsListView);
-
         ArraAdapterForSessions = new ArrayAdapter<String>(GymTimekeeperApplication.getAppContext(),R.layout.css_for_the_sessions_fragment_list_view, mylist);
-
         SessionsListVIew.setAdapter(ArraAdapterForSessions);
-
         ArraAdapterForSessions.notifyDataSetChanged();
-
         return rootView;
     }
 
@@ -67,9 +55,9 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
         SessionSummary sessionSummary =  new SessionSummary();
         sessionSummary.loadData();
         SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
-
-        System.out.println("#sesh" + sessionSummaryFile.getSessionsList().size());
-//        mylist.add(0, DataStore.buildStartTimeList() + " " + DataStore.buildSessionDurationList() + "Passed fine");
+        List<SessionSummaryEntry> sessionsList = sessionSummaryFile.getSessionsList();
+        for (SessionSummaryEntry session : sessionsList) {
+             mylist.add(session.getSessionStartTime() + " " + session.getSessionEndTime() + "1h 0m");
+        }
     }
-
 }
