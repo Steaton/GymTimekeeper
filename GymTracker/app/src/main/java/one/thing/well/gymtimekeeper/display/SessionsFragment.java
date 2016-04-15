@@ -30,13 +30,10 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
 
     public SessionsFragment(){
 
-
         // Here I need to set the mylist list to have the correct info
-
 
             mylist.add(0, "06/04" + "                          " + " 02:17" + "                 " + "02:24:23");
             mylist.add(1, "08/04" + "                          " + " 10:23" + "                 " + "00:50:09");
-
 
     }
 

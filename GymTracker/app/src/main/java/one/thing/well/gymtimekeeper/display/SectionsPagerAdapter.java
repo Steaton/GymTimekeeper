@@ -28,15 +28,15 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         if(position == 0){
 
-            return First_Page.newInstance();
+            return FirstPage.newInstance();
 
         }else if(position == 1){
 
-            return Second_Page.newInstance();
+            return SecondPage.newInstance();
 
         }else{
 
-            return First_Page.newInstance();
+            return FirstPage.newInstance();
         }
 
 
