@@ -78,7 +78,6 @@ public class SessionSummary {
             if (nextSession != null) {
                 sessionSummaryFile.add(nextSession);
             }
-            System.out.println("locationQueueIsEmptySession=" + locationQueue.isEmpty());
         }
     }
 
@@ -87,7 +86,6 @@ public class SessionSummary {
         Date sessionStartStartTime = findSessionStartTime();
         if (sessionStartStartTime == null) return null;
         Date sessionEndTime = findSessionEndTime();
-        System.out.println("locationQueue=" + sessionStartStartTime + "," + sessionEndTime);
         return new SessionSummaryEntry(sessionStartStartTime, sessionEndTime);
     }
 
@@ -95,9 +93,7 @@ public class SessionSummary {
         LocationEventEntry locationEventEntry = locationQueue.peek();
         while (!locationQueue.isEmpty() && distanceFromFixLocation(locationEventEntry) > 100.0) {
             locationEventEntry = locationQueue.remove();
-            System.out.println("locationQueueSize=" + locationQueue.size() + "," + locationEventEntry.getTime());
         }
-        System.out.println("locationQueueIsEmpty=" + locationQueue.isEmpty());
         if (locationQueue.isEmpty()) return null;
         return DateUtils.parseDateString(locationEventEntry.getTime());
     }
@@ -106,7 +102,6 @@ public class SessionSummary {
         LocationEventEntry locationEventEntry = locationQueue.peek();
         while (!locationQueue.isEmpty() && distanceFromFixLocation(locationEventEntry) <= 100.0) {
             locationEventEntry = locationQueue.remove();
-            System.out.println("locationQueueSize=" + locationQueue.size() + "," + locationEventEntry.getTime());
         }
         return DateUtils.parseDateString(locationEventEntry.getTime());
     }
