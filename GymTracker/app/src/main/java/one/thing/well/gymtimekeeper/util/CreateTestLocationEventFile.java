@@ -43,11 +43,11 @@ public class CreateTestLocationEventFile extends AndroidTestCase {
     }
 
     private void addThirtyMinutesAtLocation() {
-        addTimeAtLocation(53.4461826, -2.1913555, 30);
+        addTimeAtLocation( -2.1913555, 53.4461826, 30);
     }
 
     private void addTenMinutesOutsideLocation() {
-        addTimeAtLocation(51.569969, -0.188636, 10);
+        addTimeAtLocation( -0.188636,51.569969, 10);
     }
 
     private void addTimeAtLocation(double latitude, double longitude, int mins) {

@@ -67,6 +67,7 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
         SessionSummary sessionSummary =  new SessionSummary();
         sessionSummary.loadData();
         SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
+
         System.out.println("#sesh" + sessionSummaryFile.getSessionsList().size());
 //        mylist.add(0, DataStore.buildStartTimeList() + " " + DataStore.buildSessionDurationList() + "Passed fine");
     }
