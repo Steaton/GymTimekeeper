@@ -1,4 +1,4 @@
-package one.thing.well.gymtimekeeper;
+package one.thing.well.gymtimekeeper.session;
 
 import android.test.AndroidTestCase;
 
