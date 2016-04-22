@@ -4,6 +4,7 @@ import android.test.AndroidTestCase;
 
 import org.junit.Test;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtilsTest extends AndroidTestCase {
@@ -16,6 +17,12 @@ public class DateUtilsTest extends AndroidTestCase {
 
     @Test
     public void testGetStartOfThisWeek() {
-        System.out.println("Start of Week: " + DateUtils.getWeekStart());
+        Date weekStart = DateUtils.getWeekStart();
+        System.out.println("Start of Week: " + weekStart);
+        assertTrue(weekStart.before(new Date()));
+        assertTrue(Calendar.MONDAY == weekStart.getDay() + 1);
+        assertTrue(0 == weekStart.getHours());
+        assertTrue(0 == weekStart.getMinutes());
+        assertTrue(0 == weekStart.getSeconds());
     }
 }

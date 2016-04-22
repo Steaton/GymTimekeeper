@@ -60,4 +60,8 @@ public class SessionSummaryEntry {
                 + DateUtils.formatTime(sessionEndTime) + ","
                 + DateUtils.calculateDuration(sessionStartTime, sessionEndTime);
     }
+
+    public long durationInMilliseconds() {
+        return sessionEndTime.getTime() - sessionStartTime.getTime();
+    }
 }

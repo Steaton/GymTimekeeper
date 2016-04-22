@@ -1,9 +1,12 @@
 package one.thing.well.gymtimekeeper.util;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeConstants;
+import org.joda.time.LocalDate;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtils {
@@ -32,7 +35,6 @@ public class DateUtils {
         return  DISPLAY_DATE.format(date);
     }
 
-
     public static Date parseDateString(String dateString) throws ParseException {
         return DATE_FORMAT.parse(dateString);
 
@@ -52,13 +54,12 @@ public class DateUtils {
         return hours + "h " + minutes + "m";
     }
 
-    public static String convertToDuration(long durationThisWeek) {
-        return "";
+    public static Date getWeekStart() {
+        DateTime monday = LocalDate.now().withDayOfWeek(DateTimeConstants.MONDAY).toDateTimeAtStartOfDay();
+        return monday.toDate();
     }
 
-    public static Date getWeekStart() {
-        Calendar c = Calendar.getInstance();
-        c.set(c.get(Calendar.YEAR) - 1900, c.get(Calendar.MONTH), c.getFirstDayOfWeek(), 0, 0, 0);
-        return c.getTime();
+    public static String convertToDuration(long durationThisWeek) {
+        return calculateDuration(new Date(0), new Date(durationThisWeek));
     }
 }

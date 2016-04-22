@@ -61,6 +61,7 @@ public class SessionsFragment extends android.support.v4.app.Fragment {
     private void GatheringDataForSessionsFragment() throws IOException, ParseException {
 
         SessionSummary sessionSummary =  new SessionSummary();
+        sessionSummary.loadLocationData();
         SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
         List<SessionSummaryEntry> sessionsList = sessionSummaryFile.getSessionsList();
         String[] tempDataHolder = new String[sessionsList.size()];

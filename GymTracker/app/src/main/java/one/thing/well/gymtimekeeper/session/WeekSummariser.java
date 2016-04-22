@@ -1,6 +1,5 @@
 package one.thing.well.gymtimekeeper.session;
 
-import java.util.Date;
 import java.util.List;
 
 import one.thing.well.gymtimekeeper.datastore.sessionsummary.SessionSummaryEntry;
@@ -24,16 +23,14 @@ public class WeekSummariser {
     private long getTotalDurationThisWeek(List<SessionSummaryEntry> sessions) {
         long durationThisWeek = 0;
         for (SessionSummaryEntry session  : sessions) {
-            durationThisWeek += durationThisWeek(session);
+            if (isSessionThisWeek(session)) {
+                durationThisWeek += session.durationInMilliseconds();
+            }
         }
         return durationThisWeek;
     }
 
-    private long durationThisWeek(SessionSummaryEntry session) {
-        Date sessionStartTime = session.getSessionStartTime();
-        Date weekStartDate = DateUtils.getWeekStart();
-        // starting monday date
-        //if ()
-        return 0;
+    private boolean isSessionThisWeek(SessionSummaryEntry session) {
+        return session.getSessionStartTime().after(DateUtils.getWeekStart());
     }
 }

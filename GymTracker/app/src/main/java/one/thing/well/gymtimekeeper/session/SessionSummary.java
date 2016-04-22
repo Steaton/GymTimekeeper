@@ -32,7 +32,11 @@ public class SessionSummary {
 
     private SessionFileLoader sessionFileLoader = new SessionFileLoader();
 
-    public SessionSummary() throws IOException, ParseException {
+    public SessionSummary() {
+
+    }
+
+    public void loadLocationData() throws IOException, ParseException {
         sessionFileLoader.loadData();
         locationQueue = sessionFileLoader.getLocationQueue();
         fixLatitude = sessionFileLoader.getFixLatitude();
