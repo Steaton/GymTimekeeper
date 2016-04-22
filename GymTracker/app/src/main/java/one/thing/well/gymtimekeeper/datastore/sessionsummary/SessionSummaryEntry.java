@@ -53,4 +53,10 @@ public class SessionSummaryEntry {
     public String toString() {
         return sessionStartTime + FileConstants.SPLITTER + sessionEndTime;
     }
+
+    public String displayString() {
+        return DateUtils.formatDate(sessionStartTime) + " "
+                + DateUtils.formatDate(sessionEndTime) + " "
+                + DateUtils.calculateDuration(sessionStartTime, sessionEndTime);
+    }
 }

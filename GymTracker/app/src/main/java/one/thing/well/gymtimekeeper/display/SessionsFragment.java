@@ -61,7 +61,7 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
         for (SessionSummaryEntry session : sessionsList) {
             Date startTime = session.getSessionStartTime();
             Date endTime = session.getSessionEndTime();
-            mylist.add(startTime + " " + endTime + DateUtils.calculateDuration(startTime, endTime));
+            mylist.add(session.displayString());
         }
     }
 }
