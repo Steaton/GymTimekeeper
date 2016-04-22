@@ -20,6 +20,26 @@ public class WeekSummariser {
         return DateUtils.convertToDuration(durationThisWeek);
     }
 
+    public String today() {
+        List<SessionSummaryEntry> sessions = sessionSummaryFile.getSessionsList();
+        long durationThisWeek = getTotalDurationToday(sessions);
+        return DateUtils.convertToDuration(durationThisWeek);
+    }
+
+    private long getTotalDurationToday(List<SessionSummaryEntry> sessions) {
+        long durationThisWeek = 0;
+        for (SessionSummaryEntry session  : sessions) {
+            if (isSessionToday(session)) {
+                durationThisWeek += session.durationInMilliseconds();
+            }
+        }
+        return durationThisWeek;
+    }
+
+    private boolean isSessionToday(SessionSummaryEntry session) {
+        return session.getSessionStartTime().after(DateUtils.getDayStart());
+    }
+
     private long getTotalDurationThisWeek(List<SessionSummaryEntry> sessions) {
         long durationThisWeek = 0;
         for (SessionSummaryEntry session  : sessions) {

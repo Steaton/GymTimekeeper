@@ -62,4 +62,9 @@ public class DateUtils {
     public static String convertToDuration(long durationThisWeek) {
         return calculateDuration(new Date(0), new Date(durationThisWeek));
     }
+
+    public static Date getDayStart() {
+        DateTime startOfDay = LocalDate.now().toDateTimeAtStartOfDay();
+        return startOfDay.toDate();
+    }
 }
