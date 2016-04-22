@@ -12,6 +12,7 @@ import android.R.layout;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
@@ -20,6 +21,7 @@ import one.thing.well.gymtimekeeper.datastore.locationevent.LocationEventFile;
 import one.thing.well.gymtimekeeper.datastore.sessionsummary.SessionSummaryEntry;
 import one.thing.well.gymtimekeeper.datastore.sessionsummary.SessionSummaryFile;
 import one.thing.well.gymtimekeeper.session.SessionSummary;
+import one.thing.well.gymtimekeeper.util.DateUtils;
 
 /**
  * Created by zeko on 05/04/2016.
@@ -57,7 +59,9 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
         SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
         List<SessionSummaryEntry> sessionsList = sessionSummaryFile.getSessionsList();
         for (SessionSummaryEntry session : sessionsList) {
-             mylist.add(session.getSessionStartTime() + " " + session.getSessionEndTime() + "1h 0m");
+            Date startTime = session.getSessionStartTime();
+            Date endTime = session.getSessionEndTime();
+            mylist.add(startTime + " " + endTime + DateUtils.calculateDuration(startTime, endTime));
         }
     }
 }

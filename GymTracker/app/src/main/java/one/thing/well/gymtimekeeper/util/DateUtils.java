@@ -3,6 +3,7 @@ package one.thing.well.gymtimekeeper.util;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtils {
@@ -32,5 +33,15 @@ public class DateUtils {
         durationInMillis -= durationInMillis - (hours * (60 * 60 * 1000));
         long minutes = durationInMillis / (60 * 1000) % 60;;
         return hours + "h " + minutes + "m";
+    }
+
+    public static String convertToDuration(long durationThisWeek) {
+        return "";
+    }
+
+    public static Date getWeekStart() {
+        Calendar c = Calendar.getInstance();
+        c.set(c.get(Calendar.YEAR) - 1900, c.get(Calendar.MONTH), c.getFirstDayOfWeek(), 0, 0, 0);
+        return c.getTime();
     }
 }

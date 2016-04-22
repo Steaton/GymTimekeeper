@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
@@ -40,9 +41,40 @@ public class SessionSummary {
         }
     }
 
+
+
     private void readLocationFiles() throws IOException {
         readLocationFixData();
         readLocationEventData();
+    }
+
+    public SessionSummaryFile summariseSessions() throws ParseException {
+        if(hasDataToSummarise()) {
+            summariseLocations();
+        }
+        return sessionSummaryFile;
+    }
+
+    public String thisWeek() {
+        List<SessionSummaryEntry> sessions = sessionSummaryFile.getSessionsList();
+        long durationThisWeek = getTotalDurationThisWeek(sessions);
+        return DateUtils.convertToDuration(durationThisWeek);
+    }
+
+    private long getTotalDurationThisWeek(List<SessionSummaryEntry> sessions) {
+        long durationThisWeek = 0;
+        for (SessionSummaryEntry session  : sessions) {
+            durationThisWeek += durationThisWeek(session);
+        }
+        return durationThisWeek;
+    }
+
+    private long durationThisWeek(SessionSummaryEntry session) {
+        Date sessionStartTime = session.getSessionStartTime();
+        Date weekStartDate = DateUtils.getWeekStart();
+        // starting monday date
+        //if ()
+        return 0;
     }
 
     private void readLocationEventData() throws IOException {
@@ -58,13 +90,6 @@ public class SessionSummary {
         fixLongitude = locationFixFile.getLongitude();
     }
 
-    public SessionSummaryFile summariseSessions() throws ParseException {
-        if(hasDataToSummarise()) {
-            summariseLocations();
-        }
-        return sessionSummaryFile;
-    }
-
     private boolean hasDataToSummarise() {
         return fixLatitude != null && fixLongitude != null && locationQueue != null;
     }
@@ -77,8 +102,6 @@ public class SessionSummary {
             }
         }
     }
-
-
     private SessionSummaryEntry findNextSession() throws ParseException {
         Date sessionStartStartTime = findSessionStartTime();
         if (sessionStartStartTime == null) return null;
