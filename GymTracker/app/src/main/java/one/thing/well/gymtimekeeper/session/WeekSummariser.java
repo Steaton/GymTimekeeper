@@ -32,8 +32,10 @@ public class WeekSummariser {
     private long durationThisWeek(SessionSummaryEntry session) {
         Date sessionStartTime = session.getSessionStartTime();
         Date weekStartDate = DateUtils.getWeekStart();
-        // starting monday date
-        //if ()
-        return 0;
+        if (sessionStartTime.after(weekStartDate)) {
+            return session.durationInMilliseconds();
+        } else {
+            return 0;
+        }
     }
 }
