@@ -30,22 +30,13 @@ public class SessionSummary {
 
     private SessionSummaryFile sessionSummaryFile = new SessionSummaryFile();
 
-    public void loadData() throws IOException, ParseException {
-        try {
-            readLocationFiles();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            // Do nothing
-        } catch (NumberFormatException e) {
+    private SessionFileLoader sessionFileLoader = new SessionFileLoader();
 
-        }
-    }
-
-
-
-    private void readLocationFiles() throws IOException {
-        readLocationFixData();
-        readLocationEventData();
+    public SessionSummary() throws IOException, ParseException {
+        sessionFileLoader.loadData();
+        locationQueue = sessionFileLoader.getLocationQueue();
+        fixLatitude = sessionFileLoader.getFixLatitude();
+        fixLongitude = sessionFileLoader.getFixLongitude();
     }
 
     public SessionSummaryFile summariseSessions() throws ParseException {
@@ -53,41 +44,6 @@ public class SessionSummary {
             summariseLocations();
         }
         return sessionSummaryFile;
-    }
-
-    public String thisWeek() {
-        List<SessionSummaryEntry> sessions = sessionSummaryFile.getSessionsList();
-        long durationThisWeek = getTotalDurationThisWeek(sessions);
-        return DateUtils.convertToDuration(durationThisWeek);
-    }
-
-    private long getTotalDurationThisWeek(List<SessionSummaryEntry> sessions) {
-        long durationThisWeek = 0;
-        for (SessionSummaryEntry session  : sessions) {
-            durationThisWeek += durationThisWeek(session);
-        }
-        return durationThisWeek;
-    }
-
-    private long durationThisWeek(SessionSummaryEntry session) {
-        Date sessionStartTime = session.getSessionStartTime();
-        Date weekStartDate = DateUtils.getWeekStart();
-        // starting monday date
-        //if ()
-        return 0;
-    }
-
-    private void readLocationEventData() throws IOException {
-        LocationEventFileReader locationEventFileReader = new LocationEventFileReader(GymTimekeeperApplication.getAppContext());
-        LocationEventFile locationEventFile = (LocationEventFile) locationEventFileReader.readFile(FileConstants.LOCATION_EVENTS_FILENAME);
-        locationQueue = new ArrayBlockingQueue<LocationEventEntry>(100000, true, locationEventFile.getLocationEventList());
-    }
-
-    private void readLocationFixData() throws IOException {
-        AbstractFileReader locationFixFileReader = new LocationFixFileReader(GymTimekeeperApplication.getAppContext());
-        LocationFixFile locationFixFile = (LocationFixFile) locationFixFileReader.readFile(FileConstants.LOCATION_FIX_FILENAME);
-        fixLatitude = locationFixFile.getLatitude();
-        fixLongitude = locationFixFile.getLongitude();
     }
 
     private boolean hasDataToSummarise() {

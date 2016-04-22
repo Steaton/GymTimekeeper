@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -24,7 +25,7 @@ public class SessionSummaryTest extends AndroidTestCase {
     private Date currentSessionDate;
 
     @Before
-    public void setUp() throws ParseException {
+    public void setUp() throws ParseException, IOException {
         currentSessionDate = DateUtils.parseDateString("10/03 10:00:00");
         sessionSummary = new SessionSummary();
         locationQueue = new ArrayBlockingQueue<>(50, true);
