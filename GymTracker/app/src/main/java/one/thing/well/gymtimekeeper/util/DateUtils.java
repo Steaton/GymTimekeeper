@@ -10,10 +10,18 @@ public class DateUtils {
 
     public static final String DATE_FORMAT = "dd/MM HH:mm";
 
-    private static DateFormat dateFormat = new SimpleDateFormat(DateUtils.DATE_FORMAT);;
+    public static final String TIME_FORMAT = "HH:mm";
+
+    private static DateFormat dateFormat = new SimpleDateFormat(DateUtils.DATE_FORMAT);
+
+    private static DateFormat timeFormat = new SimpleDateFormat(DateUtils.TIME_FORMAT);
 
     public static String formatDate(Date date) {
         return dateFormat.format(date);
+    }
+
+    public static String formatTime(Date date) {
+        return timeFormat.format(date);
     }
 
     public static Date parseDateString(String dateString) throws ParseException {
