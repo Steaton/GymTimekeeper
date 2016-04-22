@@ -1,6 +1,6 @@
 app.iml
 local.properties
-workspace.xml
+.idea/workspace.xml
 .idea/shelf/unnamed.patch
 .gradle/2.4/taskArtifacts/cache.properties.lock
 .gradle/2.4/taskArtifacts/fileHashes.bin
