@@ -1,5 +1,6 @@
 package one.thing.well.gymtimekeeper.display;
 
+import android.content.pm.PackageInstaller;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +19,13 @@ import one.thing.well.gymtimekeeper.R;
 import one.thing.well.gymtimekeeper.datastore.sessionsummary.SessionSummaryEntry;
 import one.thing.well.gymtimekeeper.datastore.sessionsummary.SessionSummaryFile;
 import one.thing.well.gymtimekeeper.session.SessionSummary;
+import one.thing.well.gymtimekeeper.util.DateUtils;
 
 public class SessionsFragment extends android.support.v4.app.Fragment {
 
     private ListView sessionsListView;
 
-    private ArrayList<String> mylist = new ArrayList<>();
+    private String[] mylist ;
 
     private ArrayAdapter<String> arrayAdapterForSessions;
 
@@ -33,7 +35,7 @@ public class SessionsFragment extends android.support.v4.app.Fragment {
     }
 
     public SessionsFragment() throws IOException, ParseException {
-        GatheringDataForSessionsFragment();
+
     }
 
     @Override
@@ -41,18 +43,35 @@ public class SessionsFragment extends android.support.v4.app.Fragment {
         View rootView = inflater.inflate(R.layout.sessions_fragment,container,false);
         TextView SessionsTextView = (TextView) rootView.findViewById(R.id.SessionsTextView);
         sessionsListView = (ListView) rootView.findViewById(R.id.SessionsListView);
-        arrayAdapterForSessions = new ArrayAdapter<String>(GymTimekeeperApplication.getAppContext(),R.layout.css_for_the_sessions_fragment_list_view, mylist);
+
+        try {
+            GatheringDataForSessionsFragment();
+            arrayAdapterForSessions = new ArrayAdapterForSessionsFragment(getActivity(),mylist);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
         sessionsListView.setAdapter(arrayAdapterForSessions);
-        arrayAdapterForSessions.notifyDataSetChanged();
         return rootView;
     }
 
     private void GatheringDataForSessionsFragment() throws IOException, ParseException {
+
         SessionSummary sessionSummary =  new SessionSummary();
         SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
         List<SessionSummaryEntry> sessionsList = sessionSummaryFile.getSessionsList();
-        for (SessionSummaryEntry session : sessionsList) {
-            mylist.add(session.displayString());
+        String[] tempDataHolder = new String[sessionsList.size()];
+        for (int i = 0 ; i < sessionsList.size(); i++) {
+            tempDataHolder[i] =  DateUtils.formatDisplayDate(sessionsList.get(i).getSessionStartTime()) + ","
+                    + DateUtils.formatTime(sessionsList.get(i).getSessionStartTime()) + ","
+                    + DateUtils.formatTime(sessionsList.get(i).getSessionEndTime()) + ","
+                    + DateUtils.calculateDuration(sessionsList.get(i).getSessionStartTime(), (sessionsList.get(i).getSessionEndTime()));
         }
+
+        mylist = tempDataHolder;
+
     }
 }

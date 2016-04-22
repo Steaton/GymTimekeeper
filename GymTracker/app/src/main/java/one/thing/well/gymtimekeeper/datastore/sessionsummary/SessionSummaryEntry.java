@@ -55,9 +55,9 @@ public class SessionSummaryEntry {
     }
 
     public String displayString() {
-        return DateUtils.formatDisplayDate(sessionStartTime) + "        "
-                + DateUtils.formatTime(sessionStartTime) + "                "
-                + DateUtils.formatTime(sessionEndTime) + "              "
+        return DateUtils.formatDisplayDate(sessionStartTime) + ","
+                + DateUtils.formatTime(sessionStartTime) + ","
+                + DateUtils.formatTime(sessionEndTime) + ","
                 + DateUtils.calculateDuration(sessionStartTime, sessionEndTime);
     }
 }
