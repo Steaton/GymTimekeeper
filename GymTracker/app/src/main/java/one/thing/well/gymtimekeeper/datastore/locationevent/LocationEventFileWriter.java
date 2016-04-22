@@ -8,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import one.thing.well.gymtimekeeper.datastore.AbstractFileWriter;
-import one.thing.well.gymtimekeeper.datastore.FileConstants;
 import one.thing.well.gymtimekeeper.util.DateUtils;
 
 public class LocationEventFileWriter extends AbstractFileWriter {
