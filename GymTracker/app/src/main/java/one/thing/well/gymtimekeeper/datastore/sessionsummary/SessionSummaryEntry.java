@@ -28,7 +28,7 @@ public class SessionSummaryEntry {
 
     private void parseSessionSummaryString(String sessionSummaryString) throws ParseException {
         String[] fields = sessionSummaryString.split(FileConstants.SPLITTER);
-        DateFormat dateFormat = new SimpleDateFormat(DateUtils.DATE_FORMAT);
+        DateFormat dateFormat = new SimpleDateFormat(DateUtils.DATE_FORMAT_STRING);
         sessionStartTime = dateFormat.parse(fields[0]);
         sessionEndTime = dateFormat.parse(fields[1]);
     }
@@ -55,8 +55,9 @@ public class SessionSummaryEntry {
     }
 
     public String displayString() {
-        return DateUtils.formatDate(sessionStartTime) + "               "
-                + DateUtils.formatTime(sessionEndTime) + "                  "
+        return DateUtils.formatDisplayDate(sessionStartTime) + "        "
+                + DateUtils.formatTime(sessionStartTime) + "                "
+                + DateUtils.formatTime(sessionEndTime) + "              "
                 + DateUtils.calculateDuration(sessionStartTime, sessionEndTime);
     }
 }

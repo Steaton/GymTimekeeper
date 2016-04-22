@@ -33,7 +33,7 @@ public class CreateTestLocationEventFile extends AndroidTestCase {
     public void shouldWriteTestDataFiles() throws ParseException, IOException {
         context = GymTimekeeperApplication.getAppContext();
         System.out.println("#sesh1" + context.getApplicationContext());
-        currentSessionDate = DateUtils.parseDateString("10/03 10:00:00");
+        currentSessionDate = DateUtils.parseDateString("10/03 10:00");
         locationQueue = new ArrayBlockingQueue<>(50, true);
         addTenMinutesOutsideLocation();
         addThirtyMinutesAtLocation();

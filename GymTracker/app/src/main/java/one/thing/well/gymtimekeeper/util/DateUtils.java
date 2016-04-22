@@ -8,24 +8,34 @@ import java.util.Date;
 
 public class DateUtils {
 
-    public static final String DATE_FORMAT = "dd/MM HH:mm";
+    public static final String DATE_FORMAT_STRING = "dd/MM HH:mm";
 
-    public static final String TIME_FORMAT = "HH:mm";
+    public static final String DISPLAY_DATE_FORMAT_STRING = "dd/MM";
 
-    private static DateFormat dateFormat = new SimpleDateFormat(DateUtils.DATE_FORMAT);
+    public static final String TIME_FORMAT_STRING = "HH:mm";
 
-    private static DateFormat timeFormat = new SimpleDateFormat(DateUtils.TIME_FORMAT);
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat(DateUtils.DATE_FORMAT_STRING);
+
+    private static final DateFormat TIME_FORMAT = new SimpleDateFormat(DateUtils.TIME_FORMAT_STRING);
+
+    private static final DateFormat DISPLAY_DATE = new SimpleDateFormat(DateUtils.DISPLAY_DATE_FORMAT_STRING);
 
     public static String formatDate(Date date) {
-        return dateFormat.format(date);
+        return DATE_FORMAT.format(date);
     }
 
     public static String formatTime(Date date) {
-        return timeFormat.format(date);
+        return TIME_FORMAT.format(date);
     }
 
+    public  static  String formatDisplayDate(Date date){
+        return  DISPLAY_DATE.format(date);
+    }
+
+
     public static Date parseDateString(String dateString) throws ParseException {
-        return dateFormat.parse(dateString);
+        return DATE_FORMAT.parse(dateString);
+
     }
 
     public static Date addMinutesToDate(Date date, int minutes) {

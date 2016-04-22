@@ -24,7 +24,7 @@ public class LocationEventFileWriter extends AbstractFileWriter {
     }
 
     private String getFormattedTime() {
-        DateFormat dateFormat = new SimpleDateFormat(DateUtils.DATE_FORMAT);
+        DateFormat dateFormat = new SimpleDateFormat(DateUtils.DATE_FORMAT_STRING);
         Date date = new Date();
         return dateFormat.format(date);
     }

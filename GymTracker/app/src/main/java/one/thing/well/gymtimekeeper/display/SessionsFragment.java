@@ -59,8 +59,6 @@ public class SessionsFragment extends android.support.v4.app.Fragment{
         SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
         List<SessionSummaryEntry> sessionsList = sessionSummaryFile.getSessionsList();
         for (SessionSummaryEntry session : sessionsList) {
-            Date startTime = session.getSessionStartTime();
-            Date endTime = session.getSessionEndTime();
             mylist.add(session.displayString());
         }
     }
