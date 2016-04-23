@@ -5,13 +5,21 @@
     android:weightSum="1">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Sessions"
+        android:text="SESSIONS"
         android:id="@+id/SessionsTextView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:background="#3ABBc0"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="#faf4f4"
+        android:singleLine="false"
+        android:paddingTop="7dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textAlignment="textEnd"
+        android:layout_gravity="end" />
 
     <TextView
         android:layout_width="wrap_content"
