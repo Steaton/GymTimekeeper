@@ -9,16 +9,12 @@ import android.widget.TextView;
 
 import one.thing.well.gymtimekeeper.R;
 
-/**
- * Created by zeko on 22/04/2016.
- */
 public class ArrayAdapterForSessionsFragment extends ArrayAdapter {
 
 
     public ArrayAdapterForSessionsFragment(Context context, String[] resource) {
         super(context, R.layout.css_for_the_sessions_fragment_list_view,resource);
     }
-
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -37,10 +33,6 @@ public class ArrayAdapterForSessionsFragment extends ArrayAdapter {
         startTimeView.setText(input[1]);
         endTimeView.setText(input[2]);
         durationView.setText(input[3]);
-
-
-
-
 
         return view;
     }

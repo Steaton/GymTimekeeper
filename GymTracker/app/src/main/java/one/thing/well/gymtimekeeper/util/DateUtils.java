@@ -2,6 +2,7 @@ package one.thing.well.gymtimekeeper.util;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
+import org.joda.time.Days;
 import org.joda.time.LocalDate;
 
 import java.text.DateFormat;
@@ -11,7 +12,7 @@ import java.util.Date;
 
 public class DateUtils {
 
-    public static final String DATE_FORMAT_STRING = "dd/MM HH:mm";
+    public static final String DATE_FORMAT_STRING = "dd/MM/yy HH:mm";
 
     public static final String DISPLAY_DATE_FORMAT_STRING = "dd/MM";
 
@@ -31,13 +32,12 @@ public class DateUtils {
         return TIME_FORMAT.format(date);
     }
 
-    public  static  String formatDisplayDate(Date date){
+    public static String formatDisplayDate(Date date){
         return  DISPLAY_DATE.format(date);
     }
 
     public static Date parseDateString(String dateString) throws ParseException {
         return DATE_FORMAT.parse(dateString);
-
     }
 
     public static Date addMinutesToDate(Date date, int minutes) {
@@ -49,8 +49,10 @@ public class DateUtils {
 
     public static String calculateDuration(Date start, Date end) {
         long durationInMillis = end.getTime() - start.getTime();
+        long days = durationInMillis / (60 * 60 * 1000 * 24);
         long hours = durationInMillis / (60 * 60 * 1000) % 24;
-        long minutes = durationInMillis / (60 * 1000) % 60;;
+        long minutes = durationInMillis / (60 * 1000) % 60;
+        if (days > 0) return days + "d " + hours + "h " + minutes + "m";
         return hours + "h " + minutes + "m";
     }
 

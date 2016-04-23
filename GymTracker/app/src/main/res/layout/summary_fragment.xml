@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Summary"
+        android:id="@+id/SummaryTextView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Today:"
+        android:id="@+id/todayTag"
+        android:layout_below="@+id/SummaryTextView"
+        android:paddingLeft="40dp"
+        android:paddingTop="2dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This Week:"
+        android:id="@+id/thisWeekTag"
+        android:layout_below="@+id/todayTag"
+        android:layout_alignRight="@+id/todayTag" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="null"
+        android:id="@+id/todayValue"
+        android:layout_above="@+id/thisWeekTag"
+        android:layout_toRightOf="@+id/todayTag"
+        android:layout_toEndOf="@+id/todayTag"
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="null"
+        android:id="@+id/thisWeekValue"
+        android:layout_below="@+id/todayTag"
+        android:layout_toRightOf="@+id/thisWeekTag"
+        android:layout_toEndOf="@+id/thisWeekTag"
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp"
+        android:paddingBottom="20dp"/>
+
+</RelativeLayout>

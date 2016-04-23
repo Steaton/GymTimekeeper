@@ -22,6 +22,8 @@ import one.thing.well.gymtimekeeper.util.DateUtils;
 
 public class SessionSummary {
 
+    public static final double RANGE = 70.0;
+
     private Queue<LocationEventEntry> locationQueue;
 
     private Double fixLatitude;
@@ -71,8 +73,9 @@ public class SessionSummary {
 
     private Date findSessionStartTime() throws ParseException {
         LocationEventEntry locationEventEntry = locationQueue.peek();
-        while (!locationQueue.isEmpty() && distanceFromFixLocation(locationEventEntry) > 100.0) {
+        while (!locationQueue.isEmpty() && distanceFromFixLocation(locationEventEntry) > RANGE) {
             locationEventEntry = locationQueue.remove();
+            System.out.println("LocationEventFile: " + locationEventEntry.toString() + " Distance: " + distanceFromFixLocation(locationEventEntry));
         }
         if (locationQueue.isEmpty()) return null;
         return DateUtils.parseDateString(locationEventEntry.getTime());
@@ -80,10 +83,13 @@ public class SessionSummary {
 
     private Date findSessionEndTime() throws ParseException {
         LocationEventEntry locationEventEntry = locationQueue.peek();
-        while (!locationQueue.isEmpty() && distanceFromFixLocation(locationEventEntry) <= 100.0) {
+        Date previousEventTime = DateUtils.parseDateString(locationEventEntry.getTime());
+        while (!locationQueue.isEmpty() && distanceFromFixLocation(locationEventEntry) <= RANGE) {
+            previousEventTime = DateUtils.parseDateString(locationEventEntry.getTime());
             locationEventEntry = locationQueue.remove();
+            System.out.println("LocationEventFile: " + locationEventEntry.toString() + " Distance: " + distanceFromFixLocation(locationEventEntry));
         }
-        return DateUtils.parseDateString(locationEventEntry.getTime());
+        return previousEventTime;
     }
 
     private float distanceFromFixLocation(LocationEventEntry locationEntry) {

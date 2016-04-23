@@ -20,10 +20,6 @@ import one.thing.well.gymtimekeeper.util.CreateTestLocationEventFile;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
-
-
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private ViewPager mViewPager;
@@ -36,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initialisePanel(savedInstanceState);
         CreateTabsForTheApp();
-        System.out.println("#sesh"+GymTimekeeperApplication.getAppContext());
+
+        System.out.println("#sesh" + GymTimekeeperApplication.getAppContext());
         try {
             createTestLocationEventFile.shouldWriteTestDataFiles();
         } catch (ParseException e) {
@@ -58,9 +55,8 @@ public class MainActivity extends AppCompatActivity {
         startService(locationService);
     }
 
-
     @Override
-      public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -81,34 +77,27 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     // This actually makes the TABs and allows for the app to call the other class
+    private void CreateTabsForTheApp() {
+        try {
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
 
+            mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-     private void CreateTabsForTheApp(){
+            mViewPager = (ViewPager) findViewById(R.id.container);
+            if (mViewPager != null) {
+                mViewPager.setAdapter(mSectionsPagerAdapter);
+            }
 
-        try{
-
-         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-         setSupportActionBar(toolbar);
-
-         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-         mViewPager = (ViewPager) findViewById(R.id.container);
-         if (mViewPager != null) {
-             mViewPager.setAdapter(mSectionsPagerAdapter);
-         }
-
-         mViewPager = (ViewPager) findViewById(R.id.buttons);
-         if (mViewPager != null) {
-             mViewPager.setAdapter(mSectionsPagerAdapter);
-         }
-
-        }catch (Exception e){
-        e.printStackTrace();}
-     }
-
-
+            mViewPager = (ViewPager) findViewById(R.id.buttons);
+            if (mViewPager != null) {
+                mViewPager.setAdapter(mSectionsPagerAdapter);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 

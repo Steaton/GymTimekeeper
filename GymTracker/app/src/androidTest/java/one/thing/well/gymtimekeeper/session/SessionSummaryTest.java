@@ -26,7 +26,7 @@ public class SessionSummaryTest extends AndroidTestCase {
 
     @Before
     public void setUp() throws ParseException, IOException {
-        currentSessionDate = DateUtils.parseDateString("10/03 10:00:00");
+        currentSessionDate = DateUtils.parseDateString("10/03 10:00");
         sessionSummary = new SessionSummary();
         locationQueue = new ArrayBlockingQueue<>(50, true);
         sessionSummary.setFixLatitude(53.4461826);
@@ -53,8 +53,8 @@ public class SessionSummaryTest extends AndroidTestCase {
         addThirtyMinutesAtLocation();
         addTenMinutesOutsideLocation();
         SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
-        Assert.assertEquals("10/03 10:00:00\n", sessionSummaryFile.buildStartTimeList());
-        Assert.assertEquals("10/03 10:30:00\n", sessionSummaryFile.buildEndTimeList());
+        Assert.assertEquals("10/03 10:00\n", sessionSummaryFile.buildStartTimeList());
+        Assert.assertEquals("10/03 10:30\n", sessionSummaryFile.buildEndTimeList());
     }
 
     @Test
@@ -63,8 +63,8 @@ public class SessionSummaryTest extends AndroidTestCase {
         addThirtyMinutesAtLocation();
         addTenMinutesOutsideLocation();
         SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
-        Assert.assertEquals("10/03 10:10:00\n", sessionSummaryFile.buildStartTimeList());
-        Assert.assertEquals("10/03 10:40:00\n", sessionSummaryFile.buildEndTimeList());
+        Assert.assertEquals("10/03 10:10\n", sessionSummaryFile.buildStartTimeList());
+        Assert.assertEquals("10/03 10:38\n", sessionSummaryFile.buildEndTimeList());
     }
 
     @Test
@@ -72,8 +72,8 @@ public class SessionSummaryTest extends AndroidTestCase {
         addTenMinutesOutsideLocation();
         addThirtyMinutesAtLocation();
         SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
-        Assert.assertEquals("10/03 10:10:00\n", sessionSummaryFile.buildStartTimeList());
-        Assert.assertEquals("10/03 10:38:00\n", sessionSummaryFile.buildEndTimeList());
+        Assert.assertEquals("10/03 10:10\n", sessionSummaryFile.buildStartTimeList());
+        Assert.assertEquals("10/03 10:38\n", sessionSummaryFile.buildEndTimeList());
     }
 
     @Test
@@ -82,9 +82,10 @@ public class SessionSummaryTest extends AndroidTestCase {
         addThirtyMinutesAtLocation();
         addTenMinutesOutsideLocation();
         addThirtyMinutesAtLocation();
+        addRecentTimeAtHome();
         SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
-        Assert.assertEquals("10/03 10:10:00\n10/03 10:50:00\n", sessionSummaryFile.buildStartTimeList());
-        Assert.assertEquals("10/03 10:40:00\n10/03 11:18:00\n", sessionSummaryFile.buildEndTimeList());
+        Assert.assertEquals("10/03 10:10\n10/03 10:50\n", sessionSummaryFile.buildStartTimeList());
+        Assert.assertEquals("10/03 10:38\n10/03 11:18\n", sessionSummaryFile.buildEndTimeList());
     }
 
     private void addThirtyMinutesAtLocation() {
@@ -93,6 +94,11 @@ public class SessionSummaryTest extends AndroidTestCase {
 
     private void addTenMinutesOutsideLocation() {
         addTimeAtLocation(51.569969, -0.188636, 10);
+    }
+
+    private void addRecentTimeAtHome() {
+        currentSessionDate = new Date();
+        addTimeAtLocation(53.4456444, 2.1972528, 120);
     }
 
     private void addTimeAtLocation(double latitude, double longitude, int mins) {

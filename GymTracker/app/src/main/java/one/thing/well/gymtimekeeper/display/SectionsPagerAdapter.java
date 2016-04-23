@@ -1,17 +1,10 @@
 package one.thing.well.gymtimekeeper.display;
 
-/**
- * Created by zeko on 20/03/2016.
- */
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-
 
     public SectionsPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -21,27 +14,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         // getItem is called to instantiate the fragment for the given page.
         // Return a First_Page (defined as a static inner class below).
-
-
-
-
-
-        if(position == 0){
-
+        if (position == 0) {
             return FirstPage.newInstance();
-
-        }else if(position == 1){
-
+        } else if (position == 1) {
             return SecondPage.newInstance();
-
-        }else{
-
+        } else {
             return FirstPage.newInstance();
         }
-
-
-
-
     }
 
     @Override

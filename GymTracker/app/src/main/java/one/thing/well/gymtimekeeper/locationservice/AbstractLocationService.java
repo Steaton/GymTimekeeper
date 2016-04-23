@@ -52,6 +52,7 @@ public abstract class AbstractLocationService extends Service
 
     @Override
     public void onLocationChanged(Location location) {
+        System.out.println("LocationServiceReport: " + location.getLatitude() + "," + location.getLongitude() + "," + location.getAccuracy());
         processLocationChangedEvent(location);
     }
 
@@ -78,8 +79,7 @@ public abstract class AbstractLocationService extends Service
     private void configureLocationTrackingRequest() {
         locationRequest = LocationRequest.create();
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(2000);
-        locationRequest.setFastestInterval(2000);
+        locationRequest.setInterval(60000);
+        locationRequest.setFastestInterval(60000);
     }
-
 }

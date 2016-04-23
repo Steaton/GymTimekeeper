@@ -30,27 +30,27 @@ public class WeekSummariserTest extends AndroidTestCase {
         assertEquals("1h 0m", timeSpentThisWeek);
     }
 
-//    @Test
-//    public void testThisWeekWithMultipleSessions() {
-//        Date now = new Date();
-//        Date twentyFiveHoursAgo = new Date(now.getTime() - (25 * 3600000));
-//        Date fiveMinutesAgo = new Date(now.getTime() - (5 * 60000));
-//        sessionSummaryFile.add(new SessionSummaryEntry(twentyFiveHoursAgo, now));
-//        sessionSummaryFile.add(new SessionSummaryEntry(fiveMinutesAgo, now));
-//        WeekSummariser weekSummariser = new WeekSummariser(sessionSummaryFile);
-//        String timeSpentThisWeek = weekSummariser.thisWeek();
-//        assertEquals("1d 1h 5m", timeSpentThisWeek);
-//    }
+    @Test
+    public void testThisWeekWithMultipleSessions() {
+        Date now = new Date();
+        Date twentyFiveHoursAgo = new Date(now.getTime() - (25 * 3600000));
+        Date fiveMinutesAgo = new Date(now.getTime() - (5 * 60000));
+        sessionSummaryFile.add(new SessionSummaryEntry(twentyFiveHoursAgo, now));
+        sessionSummaryFile.add(new SessionSummaryEntry(fiveMinutesAgo, now));
+        WeekSummariser weekSummariser = new WeekSummariser(sessionSummaryFile);
+        String timeSpentThisWeek = weekSummariser.thisWeek();
+        assertEquals("1d 1h 5m", timeSpentThisWeek);
+    }
 
     @Test
     public void testTodayWithMultipleSessions() {
         Date now = new Date();
-        Date fiveHoursAgo = new Date(now.getTime() - (5 * 3600000));
+        Date fiveHoursAgo = new Date(now.getTime() - (25 * 3600000));
         Date fiveMinutesAgo = new Date(now.getTime() - (5 * 60000));
         sessionSummaryFile.add(new SessionSummaryEntry(fiveHoursAgo, now));
         sessionSummaryFile.add(new SessionSummaryEntry(fiveMinutesAgo, now));
         WeekSummariser weekSummariser = new WeekSummariser(sessionSummaryFile);
         String timeSpentThisWeek = weekSummariser.thisWeek();
-        assertEquals("5h 5m", timeSpentThisWeek);
+        assertEquals("1d 1h 5m", timeSpentThisWeek);
     }
 }
