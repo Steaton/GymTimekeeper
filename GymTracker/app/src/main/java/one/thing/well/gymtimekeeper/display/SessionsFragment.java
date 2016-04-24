@@ -23,7 +23,7 @@ public class SessionsFragment extends Fragment {
 
     private ListView sessionsListView;
 
-    private String[] sessionData;
+    private String[][] sessionData;
 
     private ArrayAdapter<String> arrayAdapterForSessions;
 
@@ -60,12 +60,12 @@ public class SessionsFragment extends Fragment {
         sessionSummary.loadLocationData();
         SessionSummaryFile sessionSummaryFile = sessionSummary.summariseSessions();
         List<SessionSummaryEntry> sessionsList = sessionSummaryFile.getSessionsList();
-        sessionData = new String[sessionsList.size()];
+        sessionData = new String[sessionsList.size()][4];
         for (int i = 0 ; i < sessionsList.size(); i++) {
-            sessionData[i] =  DateUtils.formatDisplayDate(sessionsList.get(i).getSessionStartTime()) + ","
-                    + DateUtils.formatTime(sessionsList.get(i).getSessionStartTime()) + ","
-                    + DateUtils.formatTime(sessionsList.get(i).getSessionEndTime()) + ","
-                    + DateUtils.calculateDuration(sessionsList.get(i).getSessionStartTime(), (sessionsList.get(i).getSessionEndTime()));
+            sessionData[i][0] = DateUtils.formatDay(sessionsList.get(i).getSessionStartTime());
+            sessionData[i][1] = DateUtils.getMonth(sessionsList.get(i).getSessionStartTime());
+            sessionData[i][2] = DateUtils.formatTime(sessionsList.get(i).getSessionStartTime()) + "  -  " + DateUtils.formatTime(sessionsList.get(i).getSessionEndTime());
+            sessionData[i][3] = DateUtils.calculateDuration(sessionsList.get(i).getSessionStartTime(), (sessionsList.get(i).getSessionEndTime()));
         }
     }
 }

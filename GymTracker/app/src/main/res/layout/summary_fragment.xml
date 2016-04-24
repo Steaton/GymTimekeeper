@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="RECENT"
         android:id="@+id/SummaryTextView"
-        android:background="#3ABBc0"
+        android:background="#7faaf4"
         android:textStyle="bold"
         android:textSize="20sp"
         android:textColor="#faf4f4"
@@ -40,7 +40,8 @@
             android:padding="2dp"
             android:textStyle="bold"
             android:textSize="15sp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textColor="#9a9a9a" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,14 +52,15 @@
             android:textStyle="bold"
             android:textSize="15dp"
             android:layout_gravity="end"
-            android:textAlignment="textEnd"/>
+            android:textAlignment="textEnd"
+            android:textColor="#9a9a9a" />
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:id="@+id/dividerLine1"
-        android:background="#525252"/>
+        android:background="#9a9a9a"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -74,7 +76,8 @@
             android:layout_weight="1"
             android:textStyle="bold"
             android:textSize="15dp"
-            android:padding="2dp" />
+            android:padding="2dp"
+            android:textColor="#9a9a9a" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -85,7 +88,8 @@
             android:textStyle="bold"
             android:textSize="15dp"
             android:layout_gravity="end"
-            android:textAlignment="textEnd"/>
+            android:textAlignment="textEnd"
+            android:textColor="#9a9a9a" />
 
     </LinearLayout>
 

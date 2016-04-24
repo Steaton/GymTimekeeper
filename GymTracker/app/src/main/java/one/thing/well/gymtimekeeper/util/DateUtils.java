@@ -2,7 +2,6 @@ package one.thing.well.gymtimekeeper.util;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeConstants;
-import org.joda.time.Days;
 import org.joda.time.LocalDate;
 
 import java.text.DateFormat;
@@ -14,6 +13,10 @@ public class DateUtils {
 
     public static final String DATE_FORMAT_STRING = "dd/MM/yy HH:mm";
 
+    public static final String MONTH_ONLY_STRING = "MMM";
+
+    public static final String DAY_ONLY_STRING = "dd";
+
     public static final String DISPLAY_DATE_FORMAT_STRING = "dd/MM";
 
     public static final String TIME_FORMAT_STRING = "HH:mm";
@@ -22,7 +25,11 @@ public class DateUtils {
 
     private static final DateFormat TIME_FORMAT = new SimpleDateFormat(DateUtils.TIME_FORMAT_STRING);
 
-    private static final DateFormat DISPLAY_DATE = new SimpleDateFormat(DateUtils.DISPLAY_DATE_FORMAT_STRING);
+    private static final DateFormat DISPLAY_DATE_FORMAT = new SimpleDateFormat(DateUtils.DISPLAY_DATE_FORMAT_STRING);
+
+    private static final DateFormat MONTH_ONLY_FORMAT = new SimpleDateFormat(DateUtils.MONTH_ONLY_STRING);
+
+    private static final DateFormat DAY_ONLY_FORMAT = new SimpleDateFormat(DateUtils.DAY_ONLY_STRING);
 
     public static String formatDate(Date date) {
         return DATE_FORMAT.format(date);
@@ -33,7 +40,15 @@ public class DateUtils {
     }
 
     public static String formatDisplayDate(Date date){
-        return  DISPLAY_DATE.format(date);
+        return  DISPLAY_DATE_FORMAT.format(date);
+    }
+
+    public static String getMonth(Date date) {
+        return MONTH_ONLY_FORMAT.format(date);
+    }
+
+    public static String formatDay(Date date) {
+        return DAY_ONLY_FORMAT.format(date);
     }
 
     public static Date parseDateString(String dateString) throws ParseException {
