@@ -13,7 +13,6 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 import one.thing.well.gymtimekeeper.datastore.locationevent.LocationEventEntry;
 import one.thing.well.gymtimekeeper.datastore.sessionsummary.SessionSummaryFile;
-import one.thing.well.gymtimekeeper.session.SessionSummary;
 import one.thing.well.gymtimekeeper.util.DateUtils;
 
 public class SessionSummaryTest extends AndroidTestCase {
@@ -105,8 +104,8 @@ public class SessionSummaryTest extends AndroidTestCase {
         while(mins > 0) {
             System.out.println("locationQueueSize=" + locationQueue.size() + " mins=" + mins);
             locationQueue.offer(new LocationEventEntry(DateUtils.formatDate(currentSessionDate), latitude, longitude));
-            currentSessionDate = DateUtils.addMinutesToDate(currentSessionDate, 2);
-            mins -= 2;
+            currentSessionDate = DateUtils.addMinutesToDate(currentSessionDate, 1);
+            mins -= 1;
         }
     }
 }
