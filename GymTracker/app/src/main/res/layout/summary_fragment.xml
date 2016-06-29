@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="RECENT"
+        android:text="STATS"
         android:id="@+id/SummaryTextView"
         android:background="#7faaf4"
         android:textStyle="bold"
@@ -20,8 +20,8 @@
         android:paddingBottom="10sp"
         android:paddingLeft="15sp"
         android:paddingRight="15sp"
-        android:textAlignment="textEnd"
-        android:layout_gravity="end"/>
+        android:textAlignment="inherit"
+        android:layout_gravity="end" />
 
     <LinearLayout
         android:orientation="horizontal"

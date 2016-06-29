@@ -24,9 +24,17 @@ public class CreateTestLocationEventFile extends AndroidTestCase {
 
     public void shouldWriteTestDataFiles() throws ParseException, IOException {
         context = GymTimekeeperApplication.getAppContext();
-        currentSessionDate = DateUtils.parseDateString("23/04/16 12:52");
-        locationQueue = new ArrayBlockingQueue<>(50, true);
-        addTimeAtLocation(-2.1913555, 53.4461826, 84);
+
+        currentSessionDate = DateUtils.parseDateString("29/06/16 15:32");
+        locationQueue = new ArrayBlockingQueue<>(100, true);
+        addTimeAtLocation(-2.1913555, 53.4461826, 10);
+        addTimeOutsideLocation(10);
+        addTimeAtLocation(-2.1913555, 53.4461826, 10);
+        addTimeOutsideLocation(10);
+        addTimeAtLocation(-2.1913555, 53.4461826, 10);
+        addTimeOutsideLocation(10);
+        addTimeAtLocation(-2.1913555, 53.4461826, 10);
+        addTimeOutsideLocation(10);
         writeQueueToNewFile();
     }
 
@@ -34,16 +42,19 @@ public class CreateTestLocationEventFile extends AndroidTestCase {
         addTimeAtLocation( -2.1913555, 53.4461826, 30);
     }
 
-    private void addTenMinutesOutsideLocation() {
-        addTimeAtLocation( -0.188636,51.569969, 10);
+    private void addTimeOutsideLocation(int mins) {
+        addTimeAtLocation( -0.188636,51.569969,mins);
     }
 
     private void addTimeAtLocation(double latitude, double longitude, int mins) {
-        while(mins > 0) {
+
+
+        while(mins >= 0 ) {
             locationQueue.offer(new LocationEventEntry(DateUtils.formatDate(currentSessionDate), latitude, longitude));
-            currentSessionDate = DateUtils.addMinutesToDate(currentSessionDate, 2);
-            mins -= 2;
+            currentSessionDate = DateUtils.addMinutesToDate(currentSessionDate, 1);
+            mins -= 1;
         }
+        currentSessionDate = DateUtils.addMinutesToDate(currentSessionDate,-1) ;
     }
 
     private void writeQueueToNewFile() throws IOException {
@@ -58,19 +69,19 @@ public class CreateTestLocationEventFile extends AndroidTestCase {
     }
 
     private void writeLocationEventFile() throws IOException {
-//        FileOutputStream outputStream = null;
-//        try {
-//            context.deleteFile(FileConstants.LOCATION_EVENTS_FILENAME);
-//            outputStream = context.openFileOutput(FileConstants.LOCATION_EVENTS_FILENAME, Context.MODE_PRIVATE);
-//            for (LocationEventEntry locationEventEntry : locationQueue) {
-//                String locationEventString = locationEventEntry.toString() + "\n";
-//                outputStream.write(locationEventString.getBytes());
-//            }
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//        finally {
-//            outputStream.close();
-//        }
+        FileOutputStream outputStream = null;
+        try {
+            context.deleteFile(FileConstants.LOCATION_EVENTS_FILENAME);
+            outputStream = context.openFileOutput(FileConstants.LOCATION_EVENTS_FILENAME, Context.MODE_PRIVATE);
+            for (LocationEventEntry locationEventEntry : locationQueue) {
+                String locationEventString = locationEventEntry.toString() + "\n";
+                outputStream.write(locationEventString.getBytes());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        finally {
+            outputStream.close();
+        }
     }
 }

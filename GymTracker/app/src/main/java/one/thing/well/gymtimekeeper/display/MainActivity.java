@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         initialisePanel(savedInstanceState);
         CreateTabsForTheApp();
 
+
         System.out.println("#sesh" + GymTimekeeperApplication.getAppContext());
         try {
             createTestLocationEventFile.shouldWriteTestDataFiles();

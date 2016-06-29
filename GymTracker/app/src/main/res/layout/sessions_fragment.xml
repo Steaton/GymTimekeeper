@@ -18,8 +18,7 @@
         android:paddingBottom="10dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:layout_gravity="end"
-        android:gravity="end" />
+        android:gravity="left" />
 
     <ListView
         android:layout_width="match_parent"
