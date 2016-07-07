@@ -14,6 +14,7 @@ import java.text.ParseException;
 
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
 import one.thing.well.gymtimekeeper.R;
+import one.thing.well.gymtimekeeper.display.Setup.SectionsPagerAdapter;
 import one.thing.well.gymtimekeeper.locationservice.LocationTrackingService;
 import one.thing.well.gymtimekeeper.util.CreateTestLocationEventFile;
 

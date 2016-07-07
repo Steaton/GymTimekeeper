@@ -11,14 +11,14 @@
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="one.thing.well.gymtimekeeper.display.SummaryFragment"
+        android:name="one.thing.well.gymtimekeeper.display.mainPage.SummaryFragment"
         android:id="@+id/summaryFragment"
         tools:layout="@layout/summary_fragment" />
 
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="one.thing.well.gymtimekeeper.display.SessionsFragment"
+        android:name="one.thing.well.gymtimekeeper.display.mainPage.SessionsFragment"
         android:id="@+id/sessionsFragment"
         tools:layout="@layout/sessions_fragment" />
 

@@ -2,18 +2,340 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\org.hamcrest\hamcrest-core\1.3\42a25dc3219429f0e5d060061f71acb49bf010a0\hamcrest-core-1.3.jar"
-        jumboMode="false"
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
         revision="23.0.1"
-        sha1="42a25dc3219429f0e5d060061f71acb49bf010a0">
-        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\pre-dexed\androidTest\debug\hamcrest-core-1.3-dd19a732491e04183a91f4c60074080642dee7e1.jar" />
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.2.1_2b2c831c6b4234a7790d054a4b8a880aca6748f2\classes.dex" />
     </item>
     <item
-        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\junit\junit\4.12\2973d150c0dc1fefe998f834810d68f278ea58ec\junit-4.12.jar"
-        jumboMode="false"
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.4.0\jars\classes.jar"
+        jumboMode="true"
         revision="23.0.1"
-        sha1="2973d150c0dc1fefe998f834810d68f278ea58ec">
-        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\pre-dexed\androidTest\debug\junit-4.12-73a1272460f006eecc3b365c7ee3a56ec15bc8da.jar" />
+        sha1="613298b7aa012f121ce542881c0a599ebd8078f2">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-measurement-8.4.0_b7c13993a1a30eac73eebb9183880e267a877c00\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\oauth.signpost\signpost-core\1.2.1.2\bf95955dcf3d5a78c201e49b0c336787ea73f161\signpost-core-1.2.1.2.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="bf95955dcf3d5a78c201e49b0c336787ea73f161">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\signpost-core-1.2.1.2_8760e5b786efabdd52a97e5a7ce90172a4dfa500\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="c54246475c1bb64ac6857d1320364bfbfeda2c46">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-8.4.0_8baecb5d2b65835cc1fe61124c3692d61769b30a\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-8.4.0_7d8004ebc20dd7498c0fcfc50429bf968b08e0a8\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.7.2\8b8310381b690e317f5f0574e9b2dd7034778b4c\jackson-core-2.7.2.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="8b8310381b690e317f5f0574e9b2dd7034778b4c">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.7.2_307e51281135f676f9f864cc4ae185f794963fb6\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="551e78f21acf69ebfb489c0e79647824c838013e">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-8.4.0_61eaee3e158c4ef61b542ffa9cad152658d5508f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="0194a7409c40de94fb539d4ad9928ec5d47afeb7">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-8.4.0_c3a91eb6cab6e652f5d34bbe1aa924569f430781\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.2.1_7dc8693e1150fd19bf3a73ed35decb6a46c3b68f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="9cad249cf62751a323d9af568caf12284b7d6062">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-8.4.0_bc6aa3f31e0b9746492325c84727da84d50c6f17\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="00eb49e576f70f73c2d7f5f21c8b05b86eaae301">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_15f068be022f02632ee3f10f51f8f43c90c8e318\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\se.akerfeldt\okhttp-signpost\1.1.0\544600ae042f8fc113acb612ef30c69144b685d4\okhttp-signpost-1.1.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="544600ae042f8fc113acb612ef30c69144b685d4">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-signpost-1.1.0_c96ed23ca2a543044cb81c879f66335898e3de78\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.0.0_7eafccb850f2271f968ba425e400ce05ec989b52\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="f2df436a8f02ce7e4d7d209671fc45f97c470f0e">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-8.4.0_77c4a10bf026101227e0503e3fc481f39d10ec9c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="3a364cc6b698d1b3b2d284f64618daaa7fe77ddf">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-8.4.0_9dd5c9a10072ac293a7ed5724e85071fa7daa05b\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="e167a34eaca0b31704212f43f9576ea84e05046f">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-8.4.0_830fb42eea145e97660637be04de979371cf886b\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="1c9f35e952b212c843f7bd2c7eec8e82ad95602e">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-8.4.0_da4f7948866ea312feef28ccd66bdbfc8e61d119\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.2.1_dc4ad479c684bfc15754c23711a213d964eb350c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="966e5771a5a2ebfb31bf00d7cd6cd2546d245517">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-8.4.0_c1176aa8233a07f0b15f6e6951c74cb9976a9034\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\com.yelp.clientlib\yelp-android\2.0.0\891f25cda5cc11278999b1e59259565dbc1e0a11\yelp-android-2.0.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="891f25cda5cc11278999b1e59259565dbc1e0a11">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\yelp-android-2.0.0_34b71b08c70aefa09acc2bf9f238d6602e21af1c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.2.1_95d6adce4c60c76d7ffd7d88be9d3487d594743c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.6.0_f011f4d87aaa5270c8e4b63b4babde700af0524e\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-8.4.0_fbe09a570fa6b00e45573ada384b878e85ecb43d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.7.0\19f42c154ffc689f40a77613bc32caeb17d744e3\jackson-annotations-2.7.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="19f42c154ffc689f40a77613bc32caeb17d744e3">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-annotations-2.7.0_7d181244941b10ce864c131908aef5f6a95916ef\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.7.2\84ffa765dd258dbab8695963c41308b054f3a1cb\jackson-databind-2.7.2.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="84ffa765dd258dbab8695963c41308b054f3a1cb">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-databind-2.7.2_1fe5fe164d9ad92df33cca65d7475199434322fb\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="2d7fe76982677315c4dc4edfb459c8ca718a9d4c">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-8.4.0_ab3cc639e425fa032d54cf5cfeb55af02cfea15f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-jackson\2.0.0\9506825ddc5a43b38a3d104db913ff0f4cb2e323\converter-jackson-2.0.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="9506825ddc5a43b38a3d104db913ff0f4cb2e323">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-jackson-2.0.0_d516d5def32c74437b55fb664296c15700c77c9c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="b82b8e847173c28efffcd291b2a0b1ae9ad17fa4">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-8.4.0_7c6e3a0bfa747bc24a9aac41c28128df874c632f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="65d086ee9daaf87b5af62ad24471edafa433354c">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-8.4.0_fe150ac38fb76334c1f107ab300c2aafa8e0bd68\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.0.0\5c06d197fb7fa875ad452f562e3310dd9949d066\retrofit-2.0.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="5c06d197fb7fa875ad452f562e3310dd9949d066">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.0.0_020a786bedad8cb3bf20803aaf42bf3140d59041\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="9fe026fb4c7fce21bc5142f6e1bdf844f28061ac">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-8.4.0_e1b6b728086f81d098b7561fb6c7ae9db417cd23\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.2.1_0a7621824c5410f2f7ee4a796d27cd68e3ff1bd8\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.2.1_8bb683d74f7f86bceb5f695af9ccfb05acf7b982\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\com.google.auto.value\auto-value\1.1\f6951c141ea3e89c0f8b01da16834880a1ebf162\auto-value-1.1.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="f6951c141ea3e89c0f8b01da16834880a1ebf162">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\auto-value-1.1_ba653a16eb21e1a3370907fdb5c613e3855040d0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-8.4.0_abba204ce672af0cfbb88156f99069c7f2391dc5\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\commons-codec\commons-codec\1.3\fd32786786e2adb664d5ecc965da47629dca14ba\commons-codec-1.3.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="fd32786786e2adb664d5ecc965da47629dca14ba">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-codec-1.3_0457c2630bdb78d61148483e5e2e16a604cb54b0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="a8412b654dab86d57bf90683367488211c8a81f1">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-8.4.0_f411f8299e72d3576d0adc416037eae3933b768a\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\joda-time\joda-time\2.7\5599707a3eaad13e889f691b3af78c8c03842195\joda-time-2.7.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="5599707a3eaad13e889f691b3af78c8c03842195">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\joda-time-2.7_2b2603d0a0264acb5dd583f32c5c9143a67a59d7\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="08d34b2d135c1cc96ab506fd8bf6916d1e2f391a">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-8.4.0_38103f513749c58b87b88e3fd044303df3cac366\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="9213ae3d99cccfd2b17b7a9572682c43c10393af">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_2646b59eaf7e119734aee5529e09100d2045955b\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-23.0.0_d36f841f603355ee86cd8698ac386b403d56d972\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.2.1_a2517b795618df6ec6615c691f9a4a6f4d463117\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.2.1_9b88db00d3430be3a34a544d02eefbd6713f2295\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="b36f30ac5ee5d5214f4b1e2ac49f11889d58e71a">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-8.4.0_e6d63475e0c87ee941b9c917b5ee992826e26343\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.2.0_f19c5d98e07e29d61fef557b9a38ec4787027267\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="dfecc4d835cdabcdecf7e95f0d20a3ef1e9d8ef4">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-8.4.0_c43eceb284f18868a3b19f3fd22951a73b78c45d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="04de44f90606c77f3b28cf44861f306290505aac">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-8.4.0_fecc6870f80a04d3496b9d7a57fe60cdfabc5caf\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\8.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.1"
+        sha1="1a78298e7724d5440d210bcb946b3493250d354d">
+        <dex dex="C:\Users\zeko\Documents\GitHub\GymTracker\GymTracker\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-8.4.0_9dc75edb62b321ad2a05d22ef95b8ddf3c998802\classes.dex" />
     </item>
 
 </items>
