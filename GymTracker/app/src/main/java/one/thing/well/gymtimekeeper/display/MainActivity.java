@@ -15,6 +15,7 @@ import java.text.ParseException;
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
 import one.thing.well.gymtimekeeper.R;
 import one.thing.well.gymtimekeeper.display.Setup.SectionsPagerAdapter;
+import one.thing.well.gymtimekeeper.display.mapOfGym.SetupMap;
 import one.thing.well.gymtimekeeper.locationservice.LocationTrackingService;
 import one.thing.well.gymtimekeeper.util.CreateTestLocationEventFile;
 
@@ -33,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initialisePanel(savedInstanceState);
         CreateTabsForTheApp();
-
 
         System.out.println("#sesh" + GymTimekeeperApplication.getAppContext());
         try {

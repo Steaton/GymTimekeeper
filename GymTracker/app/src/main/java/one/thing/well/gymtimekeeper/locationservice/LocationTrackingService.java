@@ -5,6 +5,7 @@ import android.location.Location;
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
 import one.thing.well.gymtimekeeper.datastore.FileConstants;
 import one.thing.well.gymtimekeeper.datastore.locationevent.LocationEventFileWriter;
+import one.thing.well.gymtimekeeper.display.mapOfGym.SetupMap;
 
 public class LocationTrackingService extends AbstractLocationService {
 
@@ -20,6 +21,11 @@ public class LocationTrackingService extends AbstractLocationService {
     }
 
     private void writeInTheGymEvent(Location location) {
+
+
         fileWriter.writeFileEntry(location.getLatitude(), location.getLongitude(), FileConstants.LOCATION_EVENTS_FILENAME);
+
     }
+
+
 }

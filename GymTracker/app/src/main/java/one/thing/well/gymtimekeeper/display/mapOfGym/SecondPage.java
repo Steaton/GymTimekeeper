@@ -1,38 +1,33 @@
 package one.thing.well.gymtimekeeper.display.mapOfGym;
 
-import android.location.Address;
-import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Locale;
 
 import one.thing.well.gymtimekeeper.GymTimekeeperApplication;
 import one.thing.well.gymtimekeeper.R;
+import one.thing.well.gymtimekeeper.datastore.FileConstants;
+import one.thing.well.gymtimekeeper.datastore.locationfix.LocationFixFileWriter;
 
 public class SecondPage extends android.support.v4.app.Fragment {
 
     MapView mMapView;
     GoogleMap googleMap;
 
-    Button btnsearch;
-    EditText editTextGymLocation;
+    Button btnSetGym;
+    ImageView refreshMapLocation;
+
 
 
 
@@ -57,20 +52,39 @@ public class SecondPage extends android.support.v4.app.Fragment {
         View v = inflater.inflate(R.layout.second_page, container,
                 false);
 
-        btnsearch = (Button) v.findViewById(R.id.btnSearch);
-        editTextGymLocation = (EditText) v.findViewById(R.id.editTextgymLocation);
+        btnSetGym = (Button) v.findViewById(R.id.btnSetGym);
+        refreshMapLocation = (ImageView) v.findViewById(R.id.locationForMapUpdate);
 
-        btnsearch.setOnClickListener(new View.OnClickListener() {
+        refreshMapLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     GymSearch();
-                }catch (Exception e){
-
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
             }
         });
+
+
+        btnSetGym.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocationReceiverForMap locationReceiverForMap = new LocationReceiverForMap(GymTimekeeperApplication.getAppContext());
+                LocationFixFileWriter fixFileWriter = new LocationFixFileWriter(GymTimekeeperApplication.getAppContext());
+                fixFileWriter.deleteFile(FileConstants.LOCATION_FIX_FILENAME);
+                fixFileWriter.writeFileEntry(locationReceiverForMap.getLatitude(),locationReceiverForMap.getLongitude(),FileConstants.LOCATION_FIX_FILENAME);
+                Toast.makeText(GymTimekeeperApplication.getAppContext(),"Your gym location has been saved",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
 
         mapSetup(v, savedInstanceState);
 
@@ -82,17 +96,9 @@ public class SecondPage extends android.support.v4.app.Fragment {
 
         googleMap.clear();
 
-        MarkerData.googleMap = googleMap;
+        SetupMap setupMap = new SetupMap(googleMap);
 
-        Thread t = new Thread(new Markers(editTextGymLocation.getText().toString()));
-
-        t.start();
-
-
-
-
-
-
+        setupMap.setlocation();
 
     }
 
@@ -115,11 +121,6 @@ public class SecondPage extends android.support.v4.app.Fragment {
 
         googleMap = mMapView.getMap();
         // latitude and longitude
-
-
-
-
-
     }
 
 
